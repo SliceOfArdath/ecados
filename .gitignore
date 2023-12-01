@@ -1,4 +1,7 @@
+# "**X" blacklists any file that has X in its path.
 **.classpath
 **.manifest
+**.sonalint
+**.metadata
 **.class
 **.DS_STORE
