@@ -11,3 +11,11 @@ bin/
 tmp/
 .tmp
 *settings/
+local.properties
+*.swp
+*.bak
+*.jar
+.factorypath
+src-gen/
+
+
