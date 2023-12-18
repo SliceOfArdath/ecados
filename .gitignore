@@ -3,5 +3,11 @@
 **.manifest
 **.sonalint
 **.metadata
-**.class
+*.class
 **.DS_STORE
+bin/
+**.settings
+**.loadpath
+tmp/
+.tmp
+*settings/
