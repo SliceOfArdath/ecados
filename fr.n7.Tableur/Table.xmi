@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tableur:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tableur="http://tableur" xsi:schemaLocation="http://tableur model/Tableur.ecore" nom="table">
-  <colonnes xsi:type="tableur:DonneeBrute" nom="A"/>
-  <colonnes xsi:type="tableur:DonneeBrute" nom="B"/>
-  <colonnes xsi:type="tableur:DonneeCalculee" nom="Moy">
-    <fonction href="../fr.n7.Traitement/Moyenne.xmi#/"/>
-  </colonnes>
-</tableur:Table>

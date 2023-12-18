@@ -1,0 +1,19 @@
+import 'algorithme.ecore'
+
+package algorithme
+
+context Algorithme
+inv nomCorrect('Le nom de l\'algorithme doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+
+context Expression
+def : algo(): Algorithme =
+	Algorithme.allInstances()
+		->select(e | e.expressions->includes(self))
+		->asSequence()->first()
+
+
+
+
+endpackage
