@@ -1,0 +1,20 @@
+import 'tableur.ecore'
+
+package tableur
+
+context Table
+inv ColonnesDifferentes('Les colonnes pour un tableur sont deux a deux distinctes du point de vue de leurs identifiants'):
+	self.colonnes 
+	-> select(c|c.oclIsTypeOf(ColonneDonnee))
+	-> collect(c|c.oclAsType(ColonneDonnee))
+	-> forAll(c1,c2 | c1 = c2 or c1.name <> c2.name)
+	
+context Table
+inv NomTableCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+context Colonne
+inv NomColonneCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
+	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+
+endpackage

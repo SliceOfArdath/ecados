@@ -7,19 +7,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
         eType="#//Sortie" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
+        eType="#//Entree"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operande" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" eSuperTypes="#//Operation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionGauche" lowerBound="1"
+  <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eGauche" lowerBound="1"
         eType="#//Expression"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressionDroite" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eDroite" lowerBound="1"
         eType="#//Expression"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperationUnaire" eSuperTypes="#//Operation">
+  <eClassifiers xsi:type="ecore:EClass" name="OperationUnaire" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
         eType="#//Expression"/>
   </eClassifiers>

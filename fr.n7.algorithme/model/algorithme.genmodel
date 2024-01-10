@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.n7.algorithme/src-gen" creationIcons="false"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/fr.n7.algorithme/src-gen" creationIcons="false"
     editDirectory="/fr.n7.algorithme.edit/src-gen" editorDirectory="/fr.n7.algorithme.editor/src-gen"
     modelPluginID="fr.n7.algorithme" modelName="Algorithme" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
     copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>algorithme.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Algorithme" basePackage="fr.n7" disposableProviderFactory="true"
+      ecorePackage="algorithme.ecore#/">
+    <genClasses ecoreClass="algorithme.ecore#//Algorithme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/expressions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/sortie"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Algorithme/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/entrees"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="algorithme.ecore#//Expression"/>
+    <genClasses image="false" ecoreClass="algorithme.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Operation/operande"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//OperationBinaire">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//OperationBinaire/eGauche"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//OperationBinaire/eDroite"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//OperationUnaire">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//OperationUnaire/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//Constante">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Constante/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//Entree">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Entree/colonne"/>
+    </genClasses>
+    <genClasses ecoreClass="algorithme.ecore#//Sortie">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Sortie/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Sortie/colonne"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Tableur" ecorePackage="../../fr.n7.tableur/model/tableur.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../fr.n7.tableur/model/tableur.ecore#//Primitive">
+      <genEnumLiterals ecoreEnumLiteral="../../fr.n7.tableur/model/tableur.ecore#//Primitive/String"/>
+      <genEnumLiterals ecoreEnumLiteral="../../fr.n7.tableur/model/tableur.ecore#//Primitive/Int"/>
+    </genEnums>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//Table">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//Table/colonnes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.tableur/model/tableur.ecore#//Table/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//Table/colonneID"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//Colonne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.tableur/model/tableur.ecore#//Colonne/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.tableur/model/tableur.ecore#//Colonne/name"/>
+    </genClasses>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//DonneeBrute"/>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee/fonction"/>
+    </genClasses>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneID"/>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
+  </genPackages>
+  <genPackages prefix="Traitement" ecorePackage="../../fr.n7.traitement/model/traitement.ecore#/">
+    <genClasses ecoreClass="../../fr.n7.traitement/model/traitement.ecore#//Fonction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/chemin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/entrees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/sorties"/>
+    </genClasses>
+  </genPackages>
 </genmodel:GenModel>

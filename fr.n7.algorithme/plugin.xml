@@ -6,4 +6,28 @@
 
 <plugin>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated algorithme -->
+      <package
+            uri="http://www.example.org/algorithme"
+            class="fr.n7.algorithme.AlgorithmePackage"
+            genModel="model/algorithme.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated algorithme -->
+      <package
+            uri="http://www.example.org/tableur"
+            class="tableur.TableurPackage"
+            genModel="model/algorithme.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated algorithme -->
+      <package
+            uri="http://www.example.org/traitement"
+            class="traitement.TraitementPackage"
+            genModel="model/algorithme.genmodel"/>
+   </extension>
+
 </plugin>

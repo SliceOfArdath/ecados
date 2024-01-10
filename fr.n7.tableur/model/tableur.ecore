@@ -12,15 +12,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Primitive"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DonneeBrute"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DonneeCalculee">
+  <eClassifiers xsi:type="ecore:EClass" name="DonneeBrute" eSuperTypes="#//ColonneDonnee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneeCalculee" eSuperTypes="#//ColonneDonnee">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fonction" lowerBound="1"
         eType="ecore:EClass ../../fr.n7.traitement/model/traitement.ecore#//Fonction"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ColonneID"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ColonneDonnee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneID" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneDonnee" eSuperTypes="#//Colonne"/>
   <eClassifiers xsi:type="ecore:EEnum" name="Primitive">
-    <eLiterals name="String"/>
-    <eLiterals name="Int" value="1"/>
+    <eLiterals name="String" literal="String"/>
+    <eLiterals name="Int" value="1" literal="Int"/>
   </eClassifiers>
 </ecore:EPackage>

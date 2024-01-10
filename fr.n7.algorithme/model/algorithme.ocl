@@ -13,6 +13,9 @@ def : algo(): Algorithme =
 		->select(e | e.expressions->includes(self))
 		->asSequence()->first()
 
+context Operation
+inv operandeNonNulle('Une operande doit etre de taille 1'):
+	self.operande.size() = 1
 
 
 
