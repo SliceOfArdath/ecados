@@ -4,7 +4,7 @@
     <semanticResources>test.vpt</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Wtx5ILCYEe6jKOXK4gdd6Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XV1XoLCYEe6jKOXK4gdd6Q" name="new Diagram" repPath="#_XVh1oLCYEe6jKOXK4gdd6Q" changeId="3444b723-05ce-4059-a8d9-c459e6230e18">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XV1XoLCYEe6jKOXK4gdd6Q" name="new Diagram" repPath="#_XVh1oLCYEe6jKOXK4gdd6Q" changeId="07c840e4-a5b8-4cc6-aa61-6ac61d968596">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']"/>
         <target xmi:type="algorithme:Algorithme" href="test.vpt#/"/>
       </ownedRepresentationDescriptors>
@@ -22,7 +22,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nGDSorCZEe6jKOXK4gdd6Q"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_nF_oQbCZEe6jKOXK4gdd6Q" fontName="Ubuntu" fontHeight="12"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nF_oQrCZEe6jKOXK4gdd6Q" x="184" y="72" width="30" height="30"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nF_oQrCZEe6jKOXK4gdd6Q" x="184" y="72" width="105" height="121"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_XWHEcrCYEe6jKOXK4gdd6Q"/>
       </data>
@@ -30,7 +30,7 @@
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_XWNLELCYEe6jKOXK4gdd6Q" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_XWNyILCYEe6jKOXK4gdd6Q"/>
     </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNode" uid="_nFi8ULCZEe6jKOXK4gdd6Q" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_nFi8ULCZEe6jKOXK4gdd6Q" name="plus" width="3" height="3" resizeKind="NSEW">
       <target xmi:type="algorithme:OperationBinaire" href="test.vpt#//@expressions.0"/>
       <semanticElements xmi:type="algorithme:OperationBinaire" href="test.vpt#//@expressions.0"/>
       <ownedStyle xmi:type="diagram:Square" uid="_nF0pILCZEe6jKOXK4gdd6Q" labelSize="12" labelPosition="node">

@@ -11,6 +11,7 @@
     <semanticResources>platform:/resource/fr.n7.traitement/model/traitement.ecore.oclas</semanticResources>
     <semanticResources>platform:/resource/fr.n7.algorithme/model/algorithme.ecore</semanticResources>
     <semanticResources>TableNotes.xmi</semanticResources>
+    <semanticResources>platform:/resource/fr.n7.traitement/model/FonctionMoyenne.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_xM8xkK_SEe6sKsPV9Asswg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_xNSIwK_SEe6sKsPV9Asswg" name="tableur" repPath="#_xNPFcK_SEe6sKsPV9Asswg" changeId="2f9aa503-ed8b-4632-983c-0185afca487c">
