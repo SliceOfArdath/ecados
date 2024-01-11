@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tableur:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tableur="http://www.example.org/tableur" xsi:schemaLocation="http://www.example.org/tableur tableur.ecore">
+  <colonnes xsi:type="tableur:DonneeBrute" name="Age"/>
+  <colonnes xsi:type="tableur:DonneeBrute" name="Note1"/>
+  <colonnes xsi:type="tableur:DonneeBrute" name="Note2"/>
+  <colonnes xsi:type="tableur:DonneeCalculee" name="Moyenne"/>
+  <colonneID name="Nom"/>
+</tableur:Table>

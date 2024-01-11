@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tableur" nsURI="http://www.example.org/tableur" nsPrefix="tableur">
+  <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
+        eType="#//ColonneDonnee" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneID" lowerBound="1"
+        eType="#//ColonneID" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colonne" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//Primitive"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneeBrute" eSuperTypes="#//ColonneDonnee"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DonneeCalculee" eSuperTypes="#//ColonneDonnee">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fonction" lowerBound="1"
+        eType="ecore:EClass ../../fr.n7.algorithme/model/algorithme.ecore#//Fonction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneID" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneDonnee" abstract="true" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Primitive">
+    <eLiterals name="String" literal="String"/>
+    <eLiterals name="Int" value="1" literal="Int"/>
+  </eClassifiers>
+</ecore:EPackage>
