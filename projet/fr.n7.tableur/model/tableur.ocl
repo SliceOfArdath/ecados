@@ -3,11 +3,11 @@ import 'tableur.ecore'
 package tableur
 
 context Table
-inv ColonnesDifferentes('Les colonnes pour un tableur sont deux a deux distinctes du point de vue de leurs identifiants'):
+inv ColonnesDifferentes('Deux colonnes partagent le même nom'):
 	self.colonnes 
-	-> select(c|c.oclIsTypeOf(ColonneDonnee))
+	-> select(c|c.oclIsKindOf(ColonneDonnee))
 	-> collect(c|c.oclAsType(ColonneDonnee))
-	-> forAll(c1,c2 | c1 = c2 or c1.name <> c2.name)
+	-> forAll(c1,c2 | c1 <> c2 implies c1.name <> c2.name)
 	
 context Table
 inv NomTableCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
@@ -16,5 +16,12 @@ inv NomTableCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za
 context Colonne
 inv NomColonneCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+	
+context ColonneExterne
+inv ColonneDansTable('La collonne externe ' + self.name + ' n\'appartient pas à la table ' + self.tableExterne.name):
+	self.tableExterne->includes(self.colonne)
+inv MemeType('La colonne référencée et la colonne référente n\'ont pas le même type ('+self.name +')' ):
+	self.type = self.colonne.type
+	
 
 endpackage
