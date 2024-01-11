@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" name="viewPointTest" version="12.0.0.2017041100">
+  <ownedViewpoints name="viewPointTest" modelFileExtension="vpt">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Diagram" domainClass="algorithme::Algorithme" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="plus" domainClass="algorithme::OperationBinaire"/>
+        <nodeMappings name="non" domainClass="OperationUnaire"/>
+        <nodeMappings name="sortie" domainClass="algorithme::Sortie"/>
+        <nodeMappings name="entree" domainClass="algorithme::Entree"/>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="fr.n7.viewPointTest.Services"/>
+  </ownedViewpoints>
+</description:Group>
