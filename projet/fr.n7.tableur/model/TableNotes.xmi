@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tableur:Table
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:tableur="http://www.example.org/tableur"
-    xsi:schemaLocation="http://www.example.org/tableur tableur.ecore"
-    name="tableTest">
-  <colonnes
-      xsi:type="tableur:DonneeBrute"
-      type="Int"
-      name="Age"/>
-  <colonnes
-      xsi:type="tableur:DonneeBrute"
-      type="Int"
-      name="Note1"/>
-  <colonnes
-      xsi:type="tableur:DonneeBrute"
-      type="Int"
-      name="Note2"/>
-  <colonnes
-      xsi:type="tableur:DonneeCalculee"
-      type="Int"
-      name="Moyenne">
-    <fonction
-        href="../../fr.n7.traitement/model/FonctionMoyenne.xmi#/"/>
+<tableur:Table xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tableur="http://www.example.org/tableur" xsi:schemaLocation="http://www.example.org/tableur tableur.ecore" name="tableTest">
+  <colonnes xsi:type="tableur:DonneeBrute" type="Int" name="Age"/>
+  <colonnes xsi:type="tableur:DonneeBrute" type="Int" name="Note1"/>
+  <colonnes xsi:type="tableur:DonneeBrute" type="Int" name="Note2"/>
+  <colonnes xsi:type="tableur:DonneeCalculee" type="Int" name="Moyenne">
+    <fonction href="../../fr.n7.traitement/model/FonctionMoyenne.xmi#/"/>
   </colonnes>
-  <colonnes
-      xsi:type="tableur:ColonneExterne"
-      name="NoteExterne"
-      tableExterne="/">
-    <colonne
-        xsi:type="tableur:DonneeBrute"
-        href="TableExterne.xmi#//@colonnes.1"/>
+  <colonnes xsi:type="tableur:ColonneExterne" type="Int" name="NoteExterne">
+    <tableExterne href="TableExterne.xmi#/"/>
+    <colonne xsi:type="tableur:DonneeBrute" href="TableExterne.xmi#//@colonnes.1"/>
   </colonnes>
-  <colonneID
-      name="Nom"/>
+  <colonneID name="Nom"/>
 </tableur:Table>

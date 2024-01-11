@@ -9,5 +9,6 @@
         eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sorties" upperBound="-1"
         eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//Table"/>
   </eClassifiers>
 </ecore:EPackage>

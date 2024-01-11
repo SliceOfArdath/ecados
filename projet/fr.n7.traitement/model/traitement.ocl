@@ -6,8 +6,11 @@ context Fonction
 inv nomCorrect('Le nom de la fonction doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 inv EntreeOuSortie('Cette fonction n\'a pas d\'entrée et pas de sortie : ' + self.name):
-	self.entrees->size() = 0 and self.sorties->size() = 0
-inv cheminCorrect('Le chemin doit être de la forme : [A-Za-z._..][A-Za-z0-9_/]* (nom = ' + self.name + ')'):
-	self.name.matches('[A-Za-z0-9_./]*[A-Za-z0-9_.]')
+	self.entrees->size() > 0 or self.sorties->size() > 0
+inv cheminCorrect('Le chemin doit être de la forme : [~/]?[A-Za-z0-9\\/.]* (chemin = ' + self.chemin + ')'):
+	self.chemin.matches('[~/]?[A-Za-z0-9\\/._-]*')
+inv toutDanslaMemeTable('Une colonne n\'appartient pas à la table ' + self.table.name):
+	self.table.colonnes->includesAll(self.entrees) and self.table.colonnes->includesAll(self.sorties)
+	
 
 endpackage

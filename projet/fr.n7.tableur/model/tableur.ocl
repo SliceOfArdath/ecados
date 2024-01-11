@@ -19,7 +19,7 @@ inv NomColonneCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-
 	
 context ColonneExterne
 inv ColonneDansTable('La collonne externe ' + self.name + ' n\'appartient pas à la table ' + self.tableExterne.name):
-	self.tableExterne->includes(self.colonne)
+	self.tableExterne.colonnes->includes(self.colonne)
 inv MemeType('La colonne référencée et la colonne référente n\'ont pas le même type ('+self.name +')' ):
 	self.type = self.colonne.type
 	
