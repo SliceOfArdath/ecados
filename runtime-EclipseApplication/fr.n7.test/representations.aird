@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:algorithme="http://www.example.org/algorithme" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:algorithme="http://www.example.org/algorithme" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_y1t7kLCVEe6jKOXK4gdd6Q" selectedViews="_Wtx5ILCYEe6jKOXK4gdd6Q" version="14.3.1.202003261200">
     <semanticResources>test.vpt</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Wtx5ILCYEe6jKOXK4gdd6Q">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XV1XoLCYEe6jKOXK4gdd6Q" name="new Diagram" repPath="#_XVh1oLCYEe6jKOXK4gdd6Q" changeId="2ca70ea3-3831-4615-9757-ba9386663dbf">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_XV1XoLCYEe6jKOXK4gdd6Q" name="new Diagram" repPath="#_XVh1oLCYEe6jKOXK4gdd6Q" changeId="3444b723-05ce-4059-a8d9-c459e6230e18">
         <description xmi:type="description_1:DiagramDescription" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']"/>
         <target xmi:type="algorithme:Algorithme" href="test.vpt#/"/>
       </ownedRepresentationDescriptors>
@@ -13,12 +13,31 @@
   <diagram:DSemanticDiagram uid="_XVh1oLCYEe6jKOXK4gdd6Q">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_XWHEcLCYEe6jKOXK4gdd6Q" source="GMF_DIAGRAMS">
       <data xmi:type="notation:Diagram" xmi:id="_XWHEcbCYEe6jKOXK4gdd6Q" type="Sirius" element="_XVh1oLCYEe6jKOXK4gdd6Q" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_nF_oQLCZEe6jKOXK4gdd6Q" type="2001" element="_nFi8ULCZEe6jKOXK4gdd6Q">
+          <children xmi:type="notation:Node" xmi:id="_nGBdcLCZEe6jKOXK4gdd6Q" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_nGBdcbCZEe6jKOXK4gdd6Q" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nGDSoLCZEe6jKOXK4gdd6Q" type="3003" element="_nF0pILCZEe6jKOXK4gdd6Q">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_nGDSobCZEe6jKOXK4gdd6Q" fontName="Ubuntu"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nGDSorCZEe6jKOXK4gdd6Q"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nF_oQbCZEe6jKOXK4gdd6Q" fontName="Ubuntu" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nF_oQrCZEe6jKOXK4gdd6Q" x="184" y="72" width="30" height="30"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_XWHEcrCYEe6jKOXK4gdd6Q"/>
       </data>
     </ownedAnnotationEntries>
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_XWNLELCYEe6jKOXK4gdd6Q" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_XWNyILCYEe6jKOXK4gdd6Q"/>
     </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_nFi8ULCZEe6jKOXK4gdd6Q" name="Invalid feature as name" width="3" height="3" resizeKind="NSEW">
+      <target xmi:type="algorithme:OperationBinaire" href="test.vpt#//@expressions.0"/>
+      <semanticElements xmi:type="algorithme:OperationBinaire" href="test.vpt#//@expressions.0"/>
+      <ownedStyle xmi:type="diagram:Square" uid="_nF0pILCZEe6jKOXK4gdd6Q" labelSize="12" labelPosition="node">
+        <description xmi:type="style:SquareDescription" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']/@defaultLayer/@nodeMappings[name='plus']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']/@defaultLayer/@nodeMappings[name='plus']"/>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_XVpxcLCYEe6jKOXK4gdd6Q"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/fr.n7.viewPointTest/description/viewPointTest.odesign#//@ownedViewpoints[name='viewPointTest']/@ownedRepresentations[name='Diagram']/@defaultLayer"/>
