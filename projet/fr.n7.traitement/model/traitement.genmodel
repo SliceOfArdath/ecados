@@ -15,6 +15,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/entrees"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/table"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Tableur" ecorePackage="../../fr.n7.tableur/model/tableur.ecore#/">
@@ -37,5 +38,9 @@
     </genClasses>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneID"/>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne/tableExterne"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne/colonne"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

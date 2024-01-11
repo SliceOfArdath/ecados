@@ -15,6 +15,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/sortie"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute algorithme.ecore#//Algorithme/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/entrees"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Algorithme/table"/>
     </genClasses>
     <genClasses image="false" ecoreClass="algorithme.ecore#//Expression"/>
     <genClasses image="false" ecoreClass="algorithme.ecore#//Operation">
@@ -34,8 +35,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Entree/colonne"/>
     </genClasses>
     <genClasses ecoreClass="algorithme.ecore#//Sortie">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Sortie/expression"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Sortie/colonne"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference algorithme.ecore#//Sortie/expression"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Tableur" ecorePackage="../../fr.n7.tableur/model/tableur.ecore#/">
@@ -58,6 +59,10 @@
     </genClasses>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneID"/>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
+    <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne/tableExterne"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//ColonneExterne/colonne"/>
+    </genClasses>
   </genPackages>
   <genPackages prefix="Traitement" ecorePackage="../../fr.n7.traitement/model/traitement.ecore#/">
     <genClasses ecoreClass="../../fr.n7.traitement/model/traitement.ecore#//Fonction">
@@ -65,6 +70,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/entrees"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/table"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

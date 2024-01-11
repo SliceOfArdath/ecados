@@ -5,6 +5,9 @@ package algorithme
 context Algorithme
 inv nomCorrect('Le nom de l\'algorithme doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
+inv ToutDansLaMemeTable('les entrées ou les sorties ne sont pas dans la table ' + self.table.name):
+	self.table.colonnes->includesAll(self.entrees) and self.table.colonnes->includes(self.sortie)
+	
 
 
 context Expression
