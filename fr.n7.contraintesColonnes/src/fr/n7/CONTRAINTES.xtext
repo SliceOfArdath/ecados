@@ -1,0 +1,36 @@
+grammar fr.n7.CONTRAINTES with org.eclipse.xtext.common.Terminals
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate cONTRAINTES "http://www.n7.fr/CONTRAINTES"
+
+EnsembleContraintes: contraintes += Contrainte+;
+
+
+Contrainte : 'contrainte' name=ID '(' colonnes+=Colonne (',' colonnes+=Colonne)* ')' '{'
+		(expression+=Expression ';')*
+	'}';
+	
+Colonne : name=ID;
+	
+Expression :Comparaison | OperationBinaire | OperationUnaire;
+
+Comparaison : 'valeur' comparateur=ComparateurType constante=FLOAT;
+
+enum ComparateurType : inf = '<'
+					| infeg = '<='
+					| sup = '>'
+					| supeg = '>='
+					| eg = '='
+;
+
+terminal FLOAT returns ecore::EFloat : ('-'|'+')? INT ('.' INT)?;
+
+OperationBinaire : '(' contrainteGauche=Expression operande=OperandeBinaireType contrainteDroite=Expression ')';
+
+enum OperandeBinaireType : and = 'et'
+					| or = 'ou'
+;
+
+OperationUnaire : operande=OperandeUnaireType '(' contrainte=Expression ')';
+
+enum OperandeUnaireType : non = '!';
