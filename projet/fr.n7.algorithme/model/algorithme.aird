@@ -12,6 +12,7 @@
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore.oclas</semanticResources>
     <semanticResources>platform:/resource/fr.n7.tableur/model/tableur.ecore.oclas</semanticResources>
     <semanticResources>platform:/resource/fr.n7.traitement/model/traitement.ecore.oclas</semanticResources>
+    <semanticResources>test.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_RoHuUK_REe6sKsPV9Asswg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Rr-TkK_REe6sKsPV9Asswg" name="algorithme" repPath="#_RqRDYK_REe6sKsPV9Asswg" changeId="a9c92367-b520-4d03-9846-2f77d4f44e08">

@@ -15,7 +15,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DonneeBrute" eSuperTypes="#//ColonneDonnee"/>
   <eClassifiers xsi:type="ecore:EClass" name="DonneeCalculee" eSuperTypes="#//ColonneDonnee">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fonction" lowerBound="1"
-        eType="ecore:EClass ../../fr.n7.algorithme/model/algorithme.ecore#//Fonction"/>
+        eType="ecore:EClass ../../fr.n7.traitement/model/traitement.ecore#//Fonction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneID" eSuperTypes="#//Colonne"/>
   <eClassifiers xsi:type="ecore:EClass" name="ColonneDonnee" abstract="true" eSuperTypes="#//Colonne"/>

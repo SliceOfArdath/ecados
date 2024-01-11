@@ -2,15 +2,13 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="algorithme" nsURI="http://www.example.org/algorithme" nsPrefix="algorithme">
   <eClassifiers xsi:type="ecore:EClass" name="Algorithme">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="#//Expression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" lowerBound="1"
+        upperBound="-1" eType="#//Expression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
         eType="#//Sortie" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
         eType="#//Entree"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fonctions" upperBound="-1"
-        eType="#//Fonction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//Expression">
@@ -31,15 +29,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entree"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Sortie"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Fonction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
-        eType="#//Entree"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sorties" upperBound="-1"
-        eType="#//Sortie"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" lowerBound="1"
+        eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sortie">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" lowerBound="1"
+        eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression"/>
   </eClassifiers>
 </ecore:EPackage>
