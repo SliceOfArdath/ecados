@@ -2,8 +2,8 @@
  */
 package fr.n7.tableur.impl;
 
-import fr.n7.tableur.ColonneDonnee;
 import fr.n7.tableur.ColonneExterne;
+import fr.n7.tableur.DonneeBrute;
 import fr.n7.tableur.Table;
 import fr.n7.tableur.TableurPackage;
 
@@ -47,7 +47,7 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 	 * @generated
 	 * @ordered
 	 */
-	protected ColonneDonnee colonne;
+	protected DonneeBrute colonne;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,10 +113,10 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColonneDonnee getColonne() {
+	public DonneeBrute getColonne() {
 		if (colonne != null && colonne.eIsProxy()) {
 			InternalEObject oldColonne = (InternalEObject) colonne;
-			colonne = (ColonneDonnee) eResolveProxy(oldColonne);
+			colonne = (DonneeBrute) eResolveProxy(oldColonne);
 			if (colonne != oldColonne) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TableurPackage.COLONNE_EXTERNE__COLONNE,
@@ -131,7 +131,7 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ColonneDonnee basicGetColonne() {
+	public DonneeBrute basicGetColonne() {
 		return colonne;
 	}
 
@@ -140,8 +140,8 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColonne(ColonneDonnee newColonne) {
-		ColonneDonnee oldColonne = colonne;
+	public void setColonne(DonneeBrute newColonne) {
+		DonneeBrute oldColonne = colonne;
 		colonne = newColonne;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TableurPackage.COLONNE_EXTERNE__COLONNE, oldColonne,
@@ -180,7 +180,7 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 			setTableExterne((Table) newValue);
 			return;
 		case TableurPackage.COLONNE_EXTERNE__COLONNE:
-			setColonne((ColonneDonnee) newValue);
+			setColonne((DonneeBrute) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -198,7 +198,7 @@ public class ColonneExterneImpl extends ColonneDonneeImpl implements ColonneExte
 			setTableExterne((Table) null);
 			return;
 		case TableurPackage.COLONNE_EXTERNE__COLONNE:
-			setColonne((ColonneDonnee) null);
+			setColonne((DonneeBrute) null);
 			return;
 		}
 		super.eUnset(featureID);

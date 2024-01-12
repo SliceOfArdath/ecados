@@ -2,7 +2,6 @@
  */
 package fr.n7.algorithme;
 
-import org.eclipse.emf.ecore.EObject;
 import tableur.ColonneDonnee;
 
 /**
@@ -21,7 +20,7 @@ import tableur.ColonneDonnee;
  * @model
  * @generated
  */
-public interface Entree extends EObject {
+public interface Entree extends Expression {
 	/**
 	 * Returns the value of the '<em><b>Colonne</b></em>' reference.
 	 * <!-- begin-user-doc -->

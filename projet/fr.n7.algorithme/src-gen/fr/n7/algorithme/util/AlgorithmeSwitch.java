@@ -120,6 +120,8 @@ public class AlgorithmeSwitch<T> extends Switch<T> {
 			Entree entree = (Entree) theEObject;
 			T result = caseEntree(entree);
 			if (result == null)
+				result = caseExpression(entree);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}

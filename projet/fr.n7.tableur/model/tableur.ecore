@@ -30,6 +30,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tableExterne" lowerBound="1"
         eType="#//Table"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="colonne" lowerBound="1"
-        eType="#//ColonneDonnee"/>
+        eType="#//DonneeBrute"/>
   </eClassifiers>
 </ecore:EPackage>

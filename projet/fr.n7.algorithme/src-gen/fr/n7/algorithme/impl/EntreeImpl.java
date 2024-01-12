@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import tableur.ColonneDonnee;
 
 /**
@@ -28,7 +26,7 @@ import tableur.ColonneDonnee;
  *
  * @generated
  */
-public class EntreeImpl extends MinimalEObjectImpl.Container implements Entree {
+public class EntreeImpl extends ExpressionImpl implements Entree {
 	/**
 	 * The cached value of the '{@link #getColonne() <em>Colonne</em>}' reference.
 	 * <!-- begin-user-doc -->

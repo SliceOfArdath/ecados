@@ -454,6 +454,7 @@ public class AlgorithmePackageImpl extends EPackageImpl implements AlgorithmePac
 		operationBinaireEClass.getESuperTypes().add(this.getExpression());
 		operationUnaireEClass.getESuperTypes().add(this.getExpression());
 		constanteEClass.getESuperTypes().add(this.getExpression());
+		entreeEClass.getESuperTypes().add(this.getExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(algorithmeEClass, Algorithme.class, "Algorithme", !IS_ABSTRACT, !IS_INTERFACE,

@@ -435,7 +435,7 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 		initEReference(getColonneExterne_TableExterne(), this.getTable(), null, "tableExterne", null, 1, 1,
 				ColonneExterne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColonneExterne_Colonne(), this.getColonneDonnee(), null, "colonne", null, 1, 1,
+		initEReference(getColonneExterne_Colonne(), this.getDonneeBrute(), null, "colonne", null, 1, 1,
 				ColonneExterne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

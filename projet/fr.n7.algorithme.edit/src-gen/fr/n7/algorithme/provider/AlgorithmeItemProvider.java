@@ -217,6 +217,9 @@ public class AlgorithmeItemProvider extends ItemProviderAdapter implements IEdit
 		newChildDescriptors.add(createChildParameter(AlgorithmePackage.Literals.ALGORITHME__EXPRESSIONS,
 				AlgorithmeFactory.eINSTANCE.createConstante()));
 
+		newChildDescriptors.add(createChildParameter(AlgorithmePackage.Literals.ALGORITHME__EXPRESSIONS,
+				AlgorithmeFactory.eINSTANCE.createEntree()));
+
 		newChildDescriptors.add(createChildParameter(AlgorithmePackage.Literals.ALGORITHME__SORTIE,
 				AlgorithmeFactory.eINSTANCE.createSortie()));
 	}

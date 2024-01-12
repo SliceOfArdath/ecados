@@ -47,12 +47,12 @@ public interface ColonneExterne extends ColonneDonnee {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Colonne</em>' reference.
-	 * @see #setColonne(ColonneDonnee)
+	 * @see #setColonne(DonneeBrute)
 	 * @see tableur.TableurPackage#getColonneExterne_Colonne()
 	 * @model required="true"
 	 * @generated
 	 */
-	ColonneDonnee getColonne();
+	DonneeBrute getColonne();
 
 	/**
 	 * Sets the value of the '{@link tableur.ColonneExterne#getColonne <em>Colonne</em>}' reference.
@@ -62,6 +62,6 @@ public interface ColonneExterne extends ColonneDonnee {
 	 * @see #getColonne()
 	 * @generated
 	 */
-	void setColonne(ColonneDonnee value);
+	void setColonne(DonneeBrute value);
 
 } // ColonneExterne

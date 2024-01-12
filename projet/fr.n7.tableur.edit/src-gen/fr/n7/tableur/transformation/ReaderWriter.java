@@ -28,16 +28,20 @@ public class ReaderWriter {
 			// Récupération de l'index de la colonne demandée
 			Scanner sc = new Scanner(file);
 			String rows = sc.nextLine();
-			List<String> cutRows = Arrays.asList(rows.split(","));
+			String[] rowArray = rows.split(",");
+			for (int i=0; i<rowArray.length; i++) {
+				rowArray[i] = rowArray[i].trim();
+			}			
+			List<String> cutRows = Arrays.asList(rowArray);
 			int index = cutRows.indexOf(columnName);
 			// Traitement du cas où on ne trouve pas
 			if (index == -1) {
 				sc.close();
-				throw new NoSuchElementException("La colonne n'existe pas dans le csv");
+				throw new NoSuchElementException("La colonne " + columnName + " n'existe pas dans le csv");
 			}
 			// Ajout de la colonne dans ligne
-			String line = sc.nextLine();
-			while (line != null) {
+			while (sc.hasNextLine()) {
+				String line = sc.nextLine();
 				// On récupère la valeur de la index-ème colonne
 				String s = line.split(",")[index];
 				list.add(s);

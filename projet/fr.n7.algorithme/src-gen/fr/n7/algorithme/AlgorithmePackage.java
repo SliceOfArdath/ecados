@@ -331,7 +331,7 @@ public interface AlgorithmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTREE__COLONNE = 0;
+	int ENTREE__COLONNE = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Entree</em>' class.
@@ -340,7 +340,7 @@ public interface AlgorithmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTREE_FEATURE_COUNT = 1;
+	int ENTREE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Entree</em>' class.
@@ -349,7 +349,7 @@ public interface AlgorithmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTREE_OPERATION_COUNT = 0;
+	int ENTREE_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fr.n7.algorithme.impl.SortieImpl <em>Sortie</em>}' class.
