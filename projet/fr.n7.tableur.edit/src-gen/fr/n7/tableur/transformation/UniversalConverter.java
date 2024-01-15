@@ -3,8 +3,10 @@ package fr.n7.tableur.transformation;
 import fr.n7.tableur.transformation.CustomExceptions.*;
 
 import java.time.temporal.TemporalAccessor;
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import fr.n7.tableur.Primitive;
 
@@ -42,6 +44,22 @@ public class UniversalConverter implements Converter<Object>{
 			lo.add(e);
 		}
 		return lo;
+	}
+	
+	public List<String> convertString(List<Object> list) {
+		List<String> l = new LinkedList<String>();
+		for (Object o : list) {
+			l.add(o.toString());
+		}
+		return l;
+	}
+	
+	public Map<String, List<String>> convertGlobalString(Map<String, List<Object>> map) {
+		Map<String, List<String>> mapString = new Hashtable<String, List<String>>();
+		for (String s : map.keySet()) {
+			mapString.put(s, convertString(map.get(s)));
+		}
+		return mapString;
 	}
 	
 }
