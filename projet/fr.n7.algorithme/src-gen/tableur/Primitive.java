@@ -38,31 +38,31 @@ public enum Primitive implements Enumerator {
 	 */
 	INT(1, "Int", "Int"),
 	/**
-	* The '<em><b>Float</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Float</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #FLOAT_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #FLOAT_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	FLOAT(2, "Float", "Float"),
 	/**
-	* The '<em><b>Date</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Date</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #DATE_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #DATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	DATE(3, "Date", "Date"),
 	/**
-	* The '<em><b>Date time</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>Date time</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #DATE_TIME_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #DATE_TIME_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	DATE_TIME(4, "Date_time", "Date_time");
 
 	/**

@@ -105,7 +105,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 */
 	public EList<ColonneDonnee> getColonnes() {
 		if (colonnes == null) {
-			colonnes = new EObjectContainmentEList<ColonneDonnee>(ColonneDonnee.class, this,
+			colonnes = new EObjectContainmentEList.Resolving<ColonneDonnee>(ColonneDonnee.class, this,
 					TableurPackage.TABLE__COLONNES);
 		}
 		return colonnes;
@@ -138,6 +138,33 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * @generated
 	 */
 	public ColonneID getColonneID() {
+		if (colonneID != null && colonneID.eIsProxy()) {
+			InternalEObject oldColonneID = (InternalEObject) colonneID;
+			colonneID = (ColonneID) eResolveProxy(oldColonneID);
+			if (colonneID != oldColonneID) {
+				InternalEObject newColonneID = (InternalEObject) colonneID;
+				NotificationChain msgs = oldColonneID.eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - TableurPackage.TABLE__COLONNE_ID, null, null);
+				if (newColonneID.eInternalContainer() == null) {
+					msgs = newColonneID.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TableurPackage.TABLE__COLONNE_ID,
+							null, msgs);
+				}
+				if (msgs != null)
+					msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TableurPackage.TABLE__COLONNE_ID,
+							oldColonneID, colonneID));
+			}
+		}
+		return colonneID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ColonneID basicGetColonneID() {
 		return colonneID;
 	}
 
@@ -211,7 +238,9 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 		case TableurPackage.TABLE__NAME:
 			return getName();
 		case TableurPackage.TABLE__COLONNE_ID:
-			return getColonneID();
+			if (resolve)
+				return getColonneID();
+			return basicGetColonneID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

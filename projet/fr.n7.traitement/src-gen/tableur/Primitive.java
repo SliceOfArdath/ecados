@@ -36,7 +36,34 @@ public enum Primitive implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INT(1, "Int", "Int");
+	INT(1, "Int", "Int"),
+	/**
+	* The '<em><b>Float</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #FLOAT_VALUE
+	* @generated
+	* @ordered
+	*/
+	FLOAT(2, "Float", "Float"),
+	/**
+	* The '<em><b>Date</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #DATE_VALUE
+	* @generated
+	* @ordered
+	*/
+	DATE(3, "Date", "Date"),
+	/**
+	* The '<em><b>Date time</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #DATE_TIME_VALUE
+	* @generated
+	* @ordered
+	*/
+	DATE_TIME(4, "Date_time", "Date_time");
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -61,12 +88,45 @@ public enum Primitive implements Enumerator {
 	public static final int INT_VALUE = 1;
 
 	/**
+	 * The '<em><b>Float</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FLOAT
+	 * @model name="Float"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FLOAT_VALUE = 2;
+
+	/**
+	 * The '<em><b>Date</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATE
+	 * @model name="Date"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATE_VALUE = 3;
+
+	/**
+	 * The '<em><b>Date time</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATE_TIME
+	 * @model name="Date_time"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATE_TIME_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Primitive</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Primitive[] VALUES_ARRAY = new Primitive[] { STRING, INT, };
+	private static final Primitive[] VALUES_ARRAY = new Primitive[] { STRING, INT, FLOAT, DATE, DATE_TIME, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Primitive</b></em>' enumerators.
@@ -126,6 +186,12 @@ public enum Primitive implements Enumerator {
 			return STRING;
 		case INT_VALUE:
 			return INT;
+		case FLOAT_VALUE:
+			return FLOAT;
+		case DATE_VALUE:
+			return DATE;
+		case DATE_TIME_VALUE:
+			return DATE_TIME;
 		}
 		return null;
 	}

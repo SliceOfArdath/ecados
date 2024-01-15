@@ -13,7 +13,7 @@ public class CustomExceptions {
 	public static class RefTableException extends Exception {
 		
 		public RefTableException(String nom) {
-			super("Erreur lors du référencement avec la table " + nom);
+			super("Erreur lors du référencement avec " + nom);
 		}
 	}
 	

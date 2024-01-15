@@ -35,7 +35,7 @@ public interface Algorithme extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Expressions</em>' containment reference list.
 	 * @see fr.n7.algorithme.AlgorithmePackage#getAlgorithme_Expressions()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	EList<Expression> getExpressions();
@@ -47,7 +47,7 @@ public interface Algorithme extends EObject {
 	 * @return the value of the '<em>Sortie</em>' containment reference.
 	 * @see #setSortie(Sortie)
 	 * @see fr.n7.algorithme.AlgorithmePackage#getAlgorithme_Sortie()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	Sortie getSortie();
@@ -91,7 +91,7 @@ public interface Algorithme extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entrees</em>' containment reference list.
 	 * @see fr.n7.algorithme.AlgorithmePackage#getAlgorithme_Entrees()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<Entree> getEntrees();

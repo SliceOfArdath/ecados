@@ -12,6 +12,7 @@ public class NumberConverter implements Converter <Number>{
 	public  List<Number> convert(List<String> column, Primitive p) throws WrongFormatException {
 		 List<Number> converted = new LinkedList<Number>();
 		for (String s : column) {
+			s = s.trim();
 			switch (p) {
 			case INT :
 				converted.add(callCommand(new converterInt(), s));

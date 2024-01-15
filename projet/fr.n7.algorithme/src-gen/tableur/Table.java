@@ -32,7 +32,7 @@ public interface Table extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Colonnes</em>' containment reference list.
 	 * @see tableur.TableurPackage#getTable_Colonnes()
-	 * @model containment="true"
+	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
 	EList<ColonneDonnee> getColonnes();
@@ -66,7 +66,7 @@ public interface Table extends EObject {
 	 * @return the value of the '<em>Colonne ID</em>' containment reference.
 	 * @see #setColonneID(ColonneID)
 	 * @see tableur.TableurPackage#getTable_ColonneID()
-	 * @model containment="true" required="true"
+	 * @model containment="true" resolveProxies="true" required="true"
 	 * @generated
 	 */
 	ColonneID getColonneID();

@@ -17,11 +17,28 @@ context Colonne
 inv NomColonneCorrect('Le nom d\'une table doit être de la forme : [A-Za-z_][A-Za-z0-9_]* (nom = ' + self.name + ')'):
 	self.name.matches('[A-Za-z_][A-Za-z0-9_]*')
 	
+context Colonne 
+def : table(): Table =
+	Table.allInstances()
+		->select(c | c.colonnes->includes(self))
+		->asSequence()->first()
+
+	
 context ColonneExterne
-inv ColonneDansTable('La collonne externe ' + self.name + ' n\'appartient pas à la table ' + self.tableExterne.name):
+inv ColonneDansTable('La colonne externe ' + self.name + ' n\'appartient pas à la table ' + self.tableExterne.name):
 	self.tableExterne.colonnes->includes(self.colonne)
 inv MemeType('La colonne référencée et la colonne référente n\'ont pas le même type ('+self.name +')' ):
 	self.type = self.colonne.type
-	
-
+inv onADitExterne('La colonne référencéé ' +self.name+ ' appartient au tableau d\'origine.'):
+	not self.table().colonnes->includes(self.colonne)
+inv nomGlobalementUnique('Le nom de la colonne ' +self.colonne.name+ ' est en duplicata avec une autre colonne d\'une table référencée.'):
+	self.table().colonnes->select(ce | ce.oclIsKindOf(ColonneExterne))
+						 ->select(ce | ce <> self)
+						 ->collect(ce | ce.oclAsType(ColonneExterne))
+						 ->forAll(ce | not ce.tableExterne.colonnes
+					 					->select(ce2 | ce2.oclIsKindOf(ColonneDonnee))
+					 					->collect(ce2 | ce2.oclAsType(ColonneDonnee))
+					 					->forAll(ce2 | ce2.name <> self.colonne.name) 
+						 			implies ce.tableExterne = self.tableExterne
+						 		)
 endpackage

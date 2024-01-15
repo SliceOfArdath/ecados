@@ -129,7 +129,7 @@ public class AlgorithmeImpl extends MinimalEObjectImpl.Container implements Algo
 	 */
 	public EList<Expression> getExpressions() {
 		if (expressions == null) {
-			expressions = new EObjectContainmentEList<Expression>(Expression.class, this,
+			expressions = new EObjectContainmentEList.Resolving<Expression>(Expression.class, this,
 					AlgorithmePackage.ALGORITHME__EXPRESSIONS);
 		}
 		return expressions;
@@ -141,6 +141,33 @@ public class AlgorithmeImpl extends MinimalEObjectImpl.Container implements Algo
 	 * @generated
 	 */
 	public Sortie getSortie() {
+		if (sortie != null && sortie.eIsProxy()) {
+			InternalEObject oldSortie = (InternalEObject) sortie;
+			sortie = (Sortie) eResolveProxy(oldSortie);
+			if (sortie != oldSortie) {
+				InternalEObject newSortie = (InternalEObject) sortie;
+				NotificationChain msgs = oldSortie.eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - AlgorithmePackage.ALGORITHME__SORTIE, null, null);
+				if (newSortie.eInternalContainer() == null) {
+					msgs = newSortie.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AlgorithmePackage.ALGORITHME__SORTIE,
+							null, msgs);
+				}
+				if (msgs != null)
+					msgs.dispatch();
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AlgorithmePackage.ALGORITHME__SORTIE,
+							oldSortie, sortie));
+			}
+		}
+		return sortie;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Sortie basicGetSortie() {
 		return sortie;
 	}
 
@@ -213,7 +240,8 @@ public class AlgorithmeImpl extends MinimalEObjectImpl.Container implements Algo
 	 */
 	public EList<Entree> getEntrees() {
 		if (entrees == null) {
-			entrees = new EObjectContainmentEList<Entree>(Entree.class, this, AlgorithmePackage.ALGORITHME__ENTREES);
+			entrees = new EObjectContainmentEList.Resolving<Entree>(Entree.class, this,
+					AlgorithmePackage.ALGORITHME__ENTREES);
 		}
 		return entrees;
 	}
@@ -287,7 +315,9 @@ public class AlgorithmeImpl extends MinimalEObjectImpl.Container implements Algo
 		case AlgorithmePackage.ALGORITHME__EXPRESSIONS:
 			return getExpressions();
 		case AlgorithmePackage.ALGORITHME__SORTIE:
-			return getSortie();
+			if (resolve)
+				return getSortie();
+			return basicGetSortie();
 		case AlgorithmePackage.ALGORITHME__NAME:
 			return getName();
 		case AlgorithmePackage.ALGORITHME__ENTREES:

@@ -1,15 +1,19 @@
 package fr.n7.tableur.transformation;
 
 
+import java.util.Collections;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil.CrossReferencer;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import fr.n7.tableur.*;
@@ -20,9 +24,11 @@ public class Tableur {
 	
 	Map<String, List<Object>> tableau;
 	List<String> colonneID;
-	Map<String, Colonne> colonnes;		
+	Map<String, ColonneDonnee> colonnesInternes;	
+	Map<String, ColonneExterne> colonnesExternes;		
 	/** Map tables : clé = nom de la table dans le modèle, valeur = chemin vers la table */
-	Map<String, String> tables;
+	Map<String, Table> tables;
+	Map<String, String> paths;
 	Table table;
 	
 	
@@ -38,35 +44,46 @@ public class Tableur {
 		// définition des attributs
     	tableau = new Hashtable<String, List<Object>>();
     	colonneID = new LinkedList<String>();
-    	colonnes = new Hashtable<String, Colonne>();
-		tables = new Hashtable<String, String>();
+    	colonnesInternes = new Hashtable<String, ColonneDonnee>();
+    	colonnesExternes = new Hashtable<String, ColonneExterne>();
+		tables = new Hashtable<String, Table>();
+		paths = new Hashtable<String, String>();
     	this.table = table;
 		
     	// import des colonnes
+    	resolveModelDependancy(args);
     	importColonnes(table);
-		importRefs(args);
 		colonneID = ReaderWriter.readColumn(table.getColonneID().getName(), filePath);
     	
     	
-    	Map<String, List<String>> tableauString = ReaderWriter.readGlobal(colonnes.keySet(), filePath);
+    	Map<String, List<String>> tableauString = ReaderWriter.readGlobal(colonnesInternes.keySet(), filePath);
     	UniversalConverter cv = new UniversalConverter();
     	
-    	for (String s : colonnes.keySet()) {
-    		Colonne colonne = colonnes.get(s);
+    	for (String s : colonnesInternes.keySet()) {
+    		ColonneDonnee colonne = colonnesInternes.get(s);
+			System.out.println("Importage de la colonne " + colonne.getName());
 			try {
-	    		if (colonne instanceof ColonneDonnee && !(colonne instanceof ColonneExterne)) {
-	    				tableau.put(s, cv.convert(tableauString.get(s), colonne.getType()));
-	    			
-	    		} else if (colonne instanceof ColonneExterne) {
-						List<String> oldList = refColonne((ColonneExterne) colonne);
-						List<String> newList = homogenisation(oldList, ((ColonneExterne) colonne).getTableExterne().getName());
-						tableau.put(colonne.getName(), new UniversalConverter().convert(newList, colonne.getType()));
-	    		}
+	    		tableau.put(s, cv.convert(tableauString.get(s), colonne.getType()));
 	    	}
 			catch (WrongFormatException e) {
-				System.out.println("Erreur lors de la colonne " + s + " du tableau : " + e.getMessage());
+				System.out.println("Erreur lors de l'import de la colonne " + s + " du tableau : " + e.getMessage());
 			}
     	}
+    	for (String s : colonnesExternes.keySet()) {
+    		ColonneExterne colonne = colonnesExternes.get(s);
+			System.out.println("Importage de la colonne " + colonne.getName());
+			try {
+				String tNom = ((ColonneExterne) colonne).getTableExterne().getName();
+		    	System.out.println("Référence à la table " + tNom);
+				List<String> oldList = refColonne((ColonneExterne) colonne, paths.get(tNom));
+				List<String> newList = homogenisation(oldList, tNom, paths.get(tNom));
+				tableau.put(colonne.getName(), new UniversalConverter().convert(newList, colonne.getType()));
+	    	}
+			catch (WrongFormatException e) {
+				System.out.println("Erreur lors de l'import de la colonne " + s + " du tableau : " + e.getMessage());
+			}
+    	}
+    	
 		
 	}
 	
@@ -74,37 +91,38 @@ public class Tableur {
 	 * 
 	 */
 	public static void use() {
-		System.out.println("utilisation : java Tableur.java modèleURI cheminVersCSV nomTableExterne1 cheminVersCSV1 nomTableExterne2 cheminVersCSV2 ...");
-	}
-	
-	/** Importe les chemin des tables externes dans une Map pour un traitement ultérieur
-	 * 
-	 * @param args les arguments de lla ligne de commande
-	 * @throws RefTableException si la table n'est pas spécifiée
-	 */
-	private void importRefs(String[] args) throws RefTableException {
-		for (int i = 2 ; i < args.length ; i+=2) {
-			if (i+1 >= args.length) {
-				use();
-				throw new RefTableException(args[i]);
-			}
-			tables.put(args[i], args[i+1]);
-		}
-		
-		
+		System.out.println("utilisation : java Tableur.java modèleURI cheminVersCSV URI1 cheminVersCSV1 URI2 cheminVersCSV2 ...");
 	}
 	
 	/** importe les colonnes de la Table table dans la map colonnes
 	 * 
 	 * @param table la table à importer
+	 * @throws RefTableException 
 	 */
-	private void importColonnes(Table table) {
-		for (Colonne c : table.getColonnes()) {
-			if (!(c instanceof ColonneExterne)) {
-				
-			colonnes.put(c.getName(), c);
+	private void importColonnes(Table table) throws RefTableException {
+		for (ColonneDonnee c : table.getColonnes()) {
+			if (c instanceof ColonneExterne) {
+				ColonneExterne ce = (ColonneExterne) c ;
+				Table t = getTable(ce);
+				ce.setTableExterne(t);
+				colonnesExternes.put(ce.getName(), ce);
+			}
+			else {
+				colonnesInternes.put(c.getName(), c);
 			}
 		}
+	}
+	
+	private Table getTable(ColonneExterne ce) throws RefTableException {
+		
+		for (String tNom : tables.keySet()) {
+			Table t = tables.get(tNom);
+			for (Colonne c : t.getColonnes()) {
+				if (c.getName().equals(ce.getName())) return t;
+			}
+		}
+		throw new RefTableException(ce.getName());
+    	
 	}
 	
 	/** Importe les colonnes extérieurs dans tableau
@@ -113,17 +131,15 @@ public class Tableur {
 	 * @throws RefTableException si la table spécifiée n'est pas trouvée parmi les arguments
 	 * @throws WrongFormatException 
 	 */
-	private List<String> refColonne(ColonneExterne colonne) throws RefTableException, WrongFormatException{
+	private List<String> refColonne(ColonneExterne colonne, String path) throws RefTableException, WrongFormatException{
 		String tableExterneNom = colonne.getTableExterne().getName();
-		String path = tables.get(tableExterneNom);
 		if (path == null) {
 			throw new RefTableException(tableExterneNom);
 		}
 		return ReaderWriter.readColumn(colonne.getName(), path);
 	}
 	
-	private List<String> homogenisation(List<String> liste, String tableRefNom) throws IDMissmatchException {
-		String path = tables.get(tableRefNom);
+	private List<String> homogenisation(List<String> liste, String tableRefNom, String path) throws IDMissmatchException {
 		ColonneID cid = table.getColonneID();
 		List<String> cidList = ReaderWriter.readColumn(cid.getName(), path);
 		List<String> homogenizedList = new LinkedList<String>();
@@ -133,9 +149,31 @@ public class Tableur {
 			if (extIndex == -1) {
 				throw new IDMissmatchException(table.getName(), tableRefNom);
 			}
-			homogenizedList.add(cidList.get(extIndex));
+			homogenizedList.add(liste.get(extIndex));
 		}
 		return homogenizedList; 
+	}
+	
+	private void resolveModelDependancy(String[] args) throws RefTableException {
+		for (int i = 2; i< args.length; i+=2) {
+			if (i+1 >= args.length) {
+				use();
+				throw new RefTableException(args[i]);
+			}
+			TableurPackage tabExtPackageInstance = TableurPackage.eINSTANCE;
+			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+			Map<String, Object> m = reg.getExtensionToFactoryMap();
+	        m.put("xmi", new XMIResourceFactoryImpl());
+			URI modelURISource = URI.createURI(args[i]);
+			ResourceSet resSet = new ResourceSetImpl();
+			
+			Resource resourceSource = resSet.getResource(modelURISource, true);
+	    	Table tableExt = (Table) resourceSource.getContents().get(0);
+	    	
+	    	tables.put(tableExt.getName(), tableExt);
+	    	paths.put(tableExt.getName(), args[i+1]);
+	    	
+		}
 	}
 
 	public static void main(String[] args) {
@@ -149,7 +187,7 @@ public class Tableur {
 		String filePath = args[1];
 			
 		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (le modÃ¨le)
-		TableurPackage spdlPackageInstance = TableurPackage.eINSTANCE;
+		TableurPackage tablPackageInstance = TableurPackage.eINSTANCE;
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
         m.put("xmi", new XMIResourceFactoryImpl());
@@ -160,16 +198,19 @@ public class Tableur {
 		Resource resourceSource = resSet.getResource(modelURISource, true);
     	Table table = (Table) resourceSource.getContents().get(0);
     	
+    	
+    	
+    	Tableur tableur = null;
     	try {
-			Tableur tableur = new Tableur(table, filePath, args);
+    		tableur = new Tableur(table, filePath, args);
 		} catch (RefTableException e) {
 			use();
 			e.printStackTrace();
 		} catch (IDMissmatchException e) {
 			e.printStackTrace();
 		}
-    	
-    	
+    	System.out.println(tableur.toString());
+    	return;
     	
     	
     	

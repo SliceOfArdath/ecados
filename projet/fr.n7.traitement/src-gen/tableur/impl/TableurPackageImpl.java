@@ -401,13 +401,13 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_Colonnes(), this.getColonneDonnee(), null, "colonnes", null, 0, -1, Table.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Table.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_ColonneID(), this.getColonneID(), null, "colonneID", null, 1, 1, Table.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneEClass, Colonne.class, "Colonne", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getColonne_Type(), this.getPrimitive(), "type", null, 1, 1, Colonne.class, !IS_TRANSIENT,
@@ -435,7 +435,7 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 		initEReference(getColonneExterne_TableExterne(), this.getTable(), null, "tableExterne", null, 1, 1,
 				ColonneExterne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getColonneExterne_Colonne(), this.getColonneDonnee(), null, "colonne", null, 1, 1,
+		initEReference(getColonneExterne_Colonne(), this.getDonneeBrute(), null, "colonne", null, 1, 1,
 				ColonneExterne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -443,6 +443,9 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 		initEEnum(primitiveEEnum, Primitive.class, "Primitive");
 		addEEnumLiteral(primitiveEEnum, Primitive.STRING);
 		addEEnumLiteral(primitiveEEnum, Primitive.INT);
+		addEEnumLiteral(primitiveEEnum, Primitive.FLOAT);
+		addEEnumLiteral(primitiveEEnum, Primitive.DATE);
+		addEEnumLiteral(primitiveEEnum, Primitive.DATE_TIME);
 
 		// Create resource
 		createResource(eNS_URI);

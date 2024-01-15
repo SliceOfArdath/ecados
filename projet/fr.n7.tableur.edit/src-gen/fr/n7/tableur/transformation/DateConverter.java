@@ -15,6 +15,7 @@ public class DateConverter implements Converter<TemporalAccessor> {
 	public List<TemporalAccessor> convert(List<String> column, Primitive p) throws WrongFormatException {
 		List<TemporalAccessor> converted = new LinkedList<TemporalAccessor>();
 		for (String s : column) {
+			s = s.trim();
 			switch (p) {
 			case INT :
 				converted.add(callCommand(new converterDate(), s));

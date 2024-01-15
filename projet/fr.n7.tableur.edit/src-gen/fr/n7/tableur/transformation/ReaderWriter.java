@@ -2,6 +2,7 @@ package fr.n7.tableur.transformation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.LinkedList;
@@ -74,6 +75,18 @@ public class ReaderWriter {
 			dict.put(column, list);
 		}
 		return dict;
+	}
+	
+	public static void writeColumn(List<String> list, String filePath) {
+		File file = new File(filePath);
+		try {
+			if (file.createNewFile()) {
+				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

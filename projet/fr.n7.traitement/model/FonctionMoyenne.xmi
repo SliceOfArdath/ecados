@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<traitement:Fonction
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:tableur="http://www.example.org/tableur"
-    xmlns:traitement="http://www.example.org/traitement"
-    xsi:schemaLocation="http://www.example.org/tableur ../../fr.n7.tableur/model/tableur.ecore http://www.example.org/traitement traitement.ecore"
-    chemin="Je-de"
-    name="moyenne">
-  <entrees xsi:type="tableur:DonneeBrute"
-      href="../../fr.n7.tableur/model/TableNotes.xmi#//@colonnes.1"/>
-  <entrees xsi:type="tableur:DonneeBrute"
-      href="../../fr.n7.tableur/model/TableNotes.xmi#//@colonnes.2"/>
+<traitement:Fonction xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tableur="http://www.example.org/tableur" xmlns:traitement="http://www.example.org/traitement" xsi:schemaLocation="http://www.example.org/tableur ../../fr.n7.tableur/model/tableur.ecore http://www.example.org/traitement traitement.ecore" chemin="Je-de" name="moyenne">
+  <entrees xsi:type="tableur:DonneeBrute" href="../../fr.n7.tableur/model/TableNotes.xmi#//@colonnes.1"/>
+  <entrees xsi:type="tableur:DonneeBrute" href="../../fr.n7.tableur/model/TableNotes.xmi#//@colonnes.2"/>
   <sorties href="../../fr.n7.tableur/model/TableNotes.xmi#//@colonnes.3"/>
   <table href="../../fr.n7.tableur/model/TableNotes.xmi#/"/>
 </traitement:Fonction>

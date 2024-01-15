@@ -15,6 +15,11 @@ public class UniversalConverter implements Converter<Object>{
 		
 		switch (p) {
 			case STRING:
+				for(int i =0; i< column.size(); i++) {
+					String s = column.get(i).trim();
+					column.add(i, s);
+					
+				}
 				return map(column);
 			case DATE:
 			case DATE_TIME:
