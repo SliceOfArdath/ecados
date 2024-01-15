@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import fr.n7.tableur.*;
 import fr.n7.tableur.transformation.CustomExceptions.*;
-import traitement.Fonction;
-import traitement.TraitementPackage;
+import traitement.*;
 
 
 public class Tableur {
@@ -62,7 +61,7 @@ public class Tableur {
     	colonnesExternes = new Hashtable<String, ColonneExterne>();
 		paths = new Hashtable<String, String>();
 		tables = new Hashtable<String, Table>();
-		rw = new ReaderWriter(Tableur.DIRECTORY_CSV + filePath);
+		rw = new ReaderWriter(filePath);
     	this.table = table;
     	
     	new File(Tableur.DIRECTORY_ECADOS + "models/Table/").mkdirs();
@@ -74,7 +73,7 @@ public class Tableur {
     	parseCommand(args);
 		
     	
-    	importTable(table, DIRECTORY_CSV + filePath, args);
+    	importTable(table, filePath, args);
 		
 	}
 	
@@ -85,20 +84,26 @@ public class Tableur {
 		System.out.println("utilisation : java Tableur.java modèleURI cheminVersCSV URI1 cheminVersCSV1 URI2 cheminVersCSV2 ...");
 	}
 	
-	public void parseCommand(String[] args) throws RefTableException {
+	public void parseCommand(String[] args) throws Exception {
 		int i = 2;
 		while (i < args.length) {
 			if (args[i].equals("-t") || args[i].equals("--tables_externes")) {
+				i++;
 				while (i+1 < args.length && !args[i].matches("-[a-zA-Z]") && !args[i].matches("--[a-zA-Z]+")) {
-			    	resolveTableDependancy(DIRECTORY_TABLE + args[i], DIRECTORY_TABLE + args[i+1]);
+			    	resolveTableDependancy(DIRECTORY_TABLE + args[i], DIRECTORY_CSV + args[i+1]);
 			    	i+=2;
 				}
 			}
-			if (args[i].equals("-f") || args[i].equals("--fonction")) {
+			else if (args[i].equals("-f") || args[i].equals("--fonction")) {
+				i++;
 				while (i+1 < args.length && !args[i].matches("-[a-zA-Z]") && !args[i].matches("--[a-zA-Z]+")) {
 			    	resolveFonctionDependancy(DIRECTORY_FONCTION + args[i]);
 			    	i++;
 				}
+			}
+			else {
+				use();
+				throw new Exception("Command line invalid");
 			}
 		}
 	}
