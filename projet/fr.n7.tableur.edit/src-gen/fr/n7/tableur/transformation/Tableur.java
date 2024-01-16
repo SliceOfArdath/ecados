@@ -32,7 +32,9 @@ public class Tableur {
 	public static final String DIRECTORY_FONCTION = DIRECTORY_ECADOS + "models/Fonction/";
 	public static final String DIRECTORY_ALGORITHME = DIRECTORY_ECADOS + "models/Algorithme/";
 	public static final String DIRECTORY_CSV = DIRECTORY_ECADOS + "csv_files/";
-	public static final String DIRECTORY_FONCTION_JAVA = DIRECTORY_ECADOS + "libs/";
+	public static final String DIRECTORY_LIBS = DIRECTORY_ECADOS + "libs/";
+	public static final String DIRECTORY_JAVA_DEV = DIRECTORY_ECADOS + "fonctions_developpeur/";
+	
 	
 	Map<String, List<Object>> tableau;
 	List<String> colonneID;
@@ -40,7 +42,7 @@ public class Tableur {
 	Map<String, ColonneExterne> colonnesExternes;		
 	/** Map tables : clé = nom de la table dans le modèle, valeur = chemin vers la table */
 	Map<String, Table> tables;
-	Map<String, Fonction> fonctions;
+	Map<String, FonctionTraitement> fonctions;
 	Map<String, String> paths;
 	Table table;
 	ReaderWriter rw;
@@ -63,12 +65,14 @@ public class Tableur {
 		tables = new Hashtable<String, Table>();
 		rw = new ReaderWriter(filePath);
     	this.table = table;
-    	
-    	new File(Tableur.DIRECTORY_ECADOS + "models/Table/").mkdirs();
-    	new File(Tableur.DIRECTORY_ECADOS + "models/Fonction/").mkdirs();
-    	new File(Tableur.DIRECTORY_ECADOS + "models/Algorithme/").mkdirs();
-    	new File(Tableur.DIRECTORY_ECADOS + "csv_files/").mkdirs();
-    	new File(Tableur.DIRECTORY_ECADOS + "libs/").mkdirs();
+    	   
+    	new File(Tableur.DIRECTORY_ECADOS).mkdirs();
+    	new File(Tableur.DIRECTORY_TABLE).mkdirs();
+    	new File(Tableur.DIRECTORY_FONCTION).mkdirs();
+    	new File(Tableur.DIRECTORY_ALGORITHME).mkdirs();
+    	new File(Tableur.DIRECTORY_CSV).mkdirs();
+    	new File(Tableur.DIRECTORY_LIBS).mkdirs();
+    	new File(Tableur.DIRECTORY_JAVA_DEV).mkdirs();
     	
     	parseCommand(args);
 		
@@ -81,7 +85,8 @@ public class Tableur {
 	 * 
 	 */
 	public static void use() {
-		System.out.println("utilisation : java Tableur.java modèleURI cheminVersCSV URI1 cheminVersCSV1 URI2 cheminVersCSV2 ...");
+		System.out.println("utilisation : java Tableur.java modèleURI cheminVersCSV -t URI1 cheminVersCSV1 URI2 cheminVersCSV2 \n"
+				+ "... -f URI1 cheminVersFonction ");
 	}
 	
 	public void parseCommand(String[] args) throws Exception {
@@ -154,7 +159,7 @@ public class Tableur {
 	 * @param table la table à importer
 	 * @throws RefTableException 
 	 */
-	private void importColonnes(Table table) throws RefTableException {
+	public void importColonnes(Table table) throws RefTableException {
 		for (ColonneDonnee c : table.getColonnes()) {
 			if (c instanceof ColonneExterne) {
 				ColonneExterne ce = (ColonneExterne) c ;
@@ -162,13 +167,20 @@ public class Tableur {
 				ce.setTableExterne(t);
 				colonnesExternes.put(ce.getName(), ce);
 			}
+			else if (c instanceof DonneeCalculee){
+				DonneeCalculee dc = (DonneeCalculee) c ;
+				Fonction  f = getFonction(dc);
+				dc.setFonction(f);
+				colonnesInternes.put(dc.getName(), dc);
+			}
 			else {
 				colonnesInternes.put(c.getName(), c);
 			}
 		}
 	}
 	
-	private Table getTable(ColonneExterne ce) throws RefTableException {
+	
+	public Table getTable(ColonneExterne ce) throws RefTableException {
 		
 		for (String tNom : tables.keySet()) {
 			Table t = tables.get(tNom);
@@ -177,6 +189,18 @@ public class Tableur {
 			}
 		}
 		throw new RefTableException(ce.getName());
+    	
+	}
+	
+	public Fonction getFonction(DonneeCalculee dc) throws RefTableException {
+		
+		for (String fNom : fonctions.keySet()) {
+			Fonction f = fonctions.get(fNom).getFonction();
+			for (DonneeCalculee c : f.getSorties()) {
+				if (c.getName().equals(dc.getName())) return f;
+			}
+		}
+		throw new RefTableException(dc.getName());
     	
 	}
 	
@@ -248,7 +272,7 @@ public class Tableur {
 		Resource resourceSource = resSet.getResource(modelURISource, true);
     	Fonction fonction = (Fonction) resourceSource.getContents().get(0);
     	
-    	fonctions.put(fonction.getName(), fonction);
+    	fonctions.put(fonction.getName(), new FonctionTraitement(fonction));
 	}
 	
 	
