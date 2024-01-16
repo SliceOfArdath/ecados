@@ -31,6 +31,10 @@ inv MemeType('La colonne référencée et la colonne référente n\'ont pas le m
 	self.type = self.colonne.type
 inv onADitExterne('La colonne référencéé ' +self.name+ ' appartient au tableau d\'origine.'):
 	not self.table().colonnes->includes(self.colonne)
+inv Importunique('La même ' + self.colonne.name + ' colonne a été importée plusieurs fois.'):
+	self.table().colonnes->select(ce | ce.oclIsKindOf(ColonneExterne))
+						 ->collect(ce | ce.oclAsType(ColonneExterne))
+						 ->forAll(ce | ce <> self implies ce.colonne.name <> self.colonne.name)
 inv nomGlobalementUnique('Le nom de la colonne ' +self.colonne.name+ ' est en duplicata avec une autre colonne d\'une table référencée.'):
 	self.table().colonnes->select(ce | ce.oclIsKindOf(ColonneExterne))
 						 ->select(ce | ce <> self)
