@@ -28,49 +28,49 @@ import org.eclipse.emf.ecore.EObject;
 public interface Contrainte extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Name()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Name()
+	 * @model
+	 * @generated
+	 */
   String getName();
 
   /**
-   * Sets the value of the '{@link fr.n7.cONTRAINTES.Contrainte#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link fr.n7.cONTRAINTES.Contrainte#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Colonnes</b></em>' containment reference list.
-   * The list contents are of type {@link fr.n7.cONTRAINTES.Colonne}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Colonnes</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.n7.cONTRAINTES.Colonne}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Colonnes</em>' containment reference list.
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Colonnes()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Colonnes</em>' containment reference list.
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Colonnes()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Colonne> getColonnes();
 
   /**
-   * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
-   * The list contents are of type {@link fr.n7.cONTRAINTES.Expression}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Expression</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.n7.cONTRAINTES.Expression}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expression</em>' containment reference list.
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Expression()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Expression</em>' containment reference list.
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getContrainte_Expression()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Expression> getExpression();
 
 } // Contrainte

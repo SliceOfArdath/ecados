@@ -34,310 +34,301 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class OperationBinaireImpl extends ExpressionImpl implements OperationBinaire
 {
   /**
-   * The cached value of the '{@link #getContrainteGauche() <em>Contrainte Gauche</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getContrainteGauche() <em>Contrainte Gauche</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContrainteGauche()
-   * @generated
-   * @ordered
-   */
+	 * @see #getContrainteGauche()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression contrainteGauche;
 
   /**
-   * The default value of the '{@link #getOperande() <em>Operande</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOperande() <em>Operande</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperande()
-   * @generated
-   * @ordered
-   */
+	 * @see #getOperande()
+	 * @generated
+	 * @ordered
+	 */
   protected static final OperandeBinaireType OPERANDE_EDEFAULT = OperandeBinaireType.AND;
 
   /**
-   * The cached value of the '{@link #getOperande() <em>Operande</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOperande() <em>Operande</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOperande()
-   * @generated
-   * @ordered
-   */
+	 * @see #getOperande()
+	 * @generated
+	 * @ordered
+	 */
   protected OperandeBinaireType operande = OPERANDE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getContrainteDroite() <em>Contrainte Droite</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getContrainteDroite() <em>Contrainte Droite</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContrainteDroite()
-   * @generated
-   * @ordered
-   */
+	 * @see #getContrainteDroite()
+	 * @generated
+	 * @ordered
+	 */
   protected Expression contrainteDroite;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected OperationBinaireImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return CONTRAINTESPackage.Literals.OPERATION_BINAIRE;
-  }
+		return CONTRAINTESPackage.Literals.OPERATION_BINAIRE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getContrainteGauche()
   {
-    return contrainteGauche;
-  }
+		return contrainteGauche;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetContrainteGauche(Expression newContrainteGauche, NotificationChain msgs)
   {
-    Expression oldContrainteGauche = contrainteGauche;
-    contrainteGauche = newContrainteGauche;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, oldContrainteGauche, newContrainteGauche);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldContrainteGauche = contrainteGauche;
+		contrainteGauche = newContrainteGauche;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, oldContrainteGauche, newContrainteGauche);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setContrainteGauche(Expression newContrainteGauche)
   {
-    if (newContrainteGauche != contrainteGauche)
-    {
-      NotificationChain msgs = null;
-      if (contrainteGauche != null)
-        msgs = ((InternalEObject)contrainteGauche).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, null, msgs);
-      if (newContrainteGauche != null)
-        msgs = ((InternalEObject)newContrainteGauche).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, null, msgs);
-      msgs = basicSetContrainteGauche(newContrainteGauche, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, newContrainteGauche, newContrainteGauche));
-  }
+		if (newContrainteGauche != contrainteGauche) {
+			NotificationChain msgs = null;
+			if (contrainteGauche != null)
+				msgs = ((InternalEObject)contrainteGauche).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, null, msgs);
+			if (newContrainteGauche != null)
+				msgs = ((InternalEObject)newContrainteGauche).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, null, msgs);
+			msgs = basicSetContrainteGauche(newContrainteGauche, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE, newContrainteGauche, newContrainteGauche));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public OperandeBinaireType getOperande()
   {
-    return operande;
-  }
+		return operande;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setOperande(OperandeBinaireType newOperande)
   {
-    OperandeBinaireType oldOperande = operande;
-    operande = newOperande == null ? OPERANDE_EDEFAULT : newOperande;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE, oldOperande, operande));
-  }
+		OperandeBinaireType oldOperande = operande;
+		operande = newOperande == null ? OPERANDE_EDEFAULT : newOperande;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE, oldOperande, operande));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression getContrainteDroite()
   {
-    return contrainteDroite;
-  }
+		return contrainteDroite;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public NotificationChain basicSetContrainteDroite(Expression newContrainteDroite, NotificationChain msgs)
   {
-    Expression oldContrainteDroite = contrainteDroite;
-    contrainteDroite = newContrainteDroite;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, oldContrainteDroite, newContrainteDroite);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
+		Expression oldContrainteDroite = contrainteDroite;
+		contrainteDroite = newContrainteDroite;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, oldContrainteDroite, newContrainteDroite);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setContrainteDroite(Expression newContrainteDroite)
   {
-    if (newContrainteDroite != contrainteDroite)
-    {
-      NotificationChain msgs = null;
-      if (contrainteDroite != null)
-        msgs = ((InternalEObject)contrainteDroite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, null, msgs);
-      if (newContrainteDroite != null)
-        msgs = ((InternalEObject)newContrainteDroite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, null, msgs);
-      msgs = basicSetContrainteDroite(newContrainteDroite, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, newContrainteDroite, newContrainteDroite));
-  }
+		if (newContrainteDroite != contrainteDroite) {
+			NotificationChain msgs = null;
+			if (contrainteDroite != null)
+				msgs = ((InternalEObject)contrainteDroite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, null, msgs);
+			if (newContrainteDroite != null)
+				msgs = ((InternalEObject)newContrainteDroite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, null, msgs);
+			msgs = basicSetContrainteDroite(newContrainteDroite, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE, newContrainteDroite, newContrainteDroite));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
-        return basicSetContrainteGauche(null, msgs);
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
-        return basicSetContrainteDroite(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
+				return basicSetContrainteGauche(null, msgs);
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
+				return basicSetContrainteDroite(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
-        return getContrainteGauche();
-      case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
-        return getOperande();
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
-        return getContrainteDroite();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
+				return getContrainteGauche();
+			case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
+				return getOperande();
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
+				return getContrainteDroite();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
-        setContrainteGauche((Expression)newValue);
-        return;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
-        setOperande((OperandeBinaireType)newValue);
-        return;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
-        setContrainteDroite((Expression)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
+				setContrainteGauche((Expression)newValue);
+				return;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
+				setOperande((OperandeBinaireType)newValue);
+				return;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
+				setContrainteDroite((Expression)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
-        setContrainteGauche((Expression)null);
-        return;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
-        setOperande(OPERANDE_EDEFAULT);
-        return;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
-        setContrainteDroite((Expression)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
+				setContrainteGauche((Expression)null);
+				return;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
+				setOperande(OPERANDE_EDEFAULT);
+				return;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
+				setContrainteDroite((Expression)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
-        return contrainteGauche != null;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
-        return operande != OPERANDE_EDEFAULT;
-      case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
-        return contrainteDroite != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_GAUCHE:
+				return contrainteGauche != null;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__OPERANDE:
+				return operande != OPERANDE_EDEFAULT;
+			case CONTRAINTESPackage.OPERATION_BINAIRE__CONTRAINTE_DROITE:
+				return contrainteDroite != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operande: ");
-    result.append(operande);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (operande: ");
+		result.append(operande);
+		result.append(')');
+		return result.toString();
+	}
 
 } //OperationBinaireImpl

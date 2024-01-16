@@ -11,11 +11,10 @@
   <genPackages prefix="Traitement" basePackage="fr.n7" disposableProviderFactory="true"
       ecorePackage="traitement.ecore#/">
     <genClasses ecoreClass="traitement.ecore#//Fonction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/chemin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/entrees"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/sorties"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference traitement.ecore#//Fonction/table"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/entrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute traitement.ecore#//Fonction/tableName"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Tableur" ecorePackage="../../fr.n7.tableur/model/tableur.ecore#/">
@@ -38,6 +37,7 @@
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//DonneeBrute"/>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee/fonction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee/nomFonction"/>
     </genClasses>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneID"/>
     <genClasses ecoreClass="../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>

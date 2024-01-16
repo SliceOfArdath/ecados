@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cONTRAINTES" nsURI="http://www.n7.fr/CONTRAINTES" nsPrefix="cONTRAINTES">
+  <eClassifiers xsi:type="ecore:EClass" name="EnsembleContraintes">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contraintes" upperBound="-1"
+        eType="#//Contrainte" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contrainte">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnes" upperBound="-1"
+        eType="#//Colonne" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colonne">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparaison" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparateur" eType="#//ComparateurType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constante" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparateurType">
+    <eLiterals name="inf" literal="&lt;"/>
+    <eLiterals name="infeg" value="1" literal="&lt;="/>
+    <eLiterals name="sup" value="2" literal=">"/>
+    <eLiterals name="supeg" value="3" literal=">="/>
+    <eLiterals name="eg" value="4" literal="="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationBinaire" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contrainteGauche" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operande" eType="#//OperandeBinaireType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contrainteDroite" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperandeBinaireType">
+    <eLiterals name="and" literal="et"/>
+    <eLiterals name="or" value="1" literal="ou"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationUnaire" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operande" eType="#//OperandeUnaireType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contrainte" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperandeUnaireType">
+    <eLiterals name="non" literal="!"/>
+  </eClassifiers>
+</ecore:EPackage>

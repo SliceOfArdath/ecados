@@ -5,7 +5,6 @@ package fr.n7.traitement;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,25 +66,25 @@ public interface TraitementPackage extends EPackage {
 	int FONCTION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Chemin</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONCTION__CHEMIN = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION__NAME = 1;
+	int FONCTION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Entrees</b></em>' reference list.
+	 * The feature id for the '<em><b>Sorties</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FONCTION__SORTIES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Entrees</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -94,22 +93,13 @@ public interface TraitementPackage extends EPackage {
 	int FONCTION__ENTREES = 2;
 
 	/**
-	 * The feature id for the '<em><b>Sorties</b></em>' reference list.
+	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION__SORTIES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FONCTION__TABLE = 4;
+	int FONCTION__TABLE_NAME = 3;
 
 	/**
 	 * The number of structural features of the '<em>Fonction</em>' class.
@@ -118,7 +108,7 @@ public interface TraitementPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FONCTION_FEATURE_COUNT = 5;
+	int FONCTION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Fonction</em>' class.
@@ -140,17 +130,6 @@ public interface TraitementPackage extends EPackage {
 	EClass getFonction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.n7.traitement.Fonction#getChemin <em>Chemin</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Chemin</em>'.
-	 * @see fr.n7.traitement.Fonction#getChemin()
-	 * @see #getFonction()
-	 * @generated
-	 */
-	EAttribute getFonction_Chemin();
-
-	/**
 	 * Returns the meta object for the attribute '{@link fr.n7.traitement.Fonction#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,37 +141,37 @@ public interface TraitementPackage extends EPackage {
 	EAttribute getFonction_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.n7.traitement.Fonction#getEntrees <em>Entrees</em>}'.
+	 * Returns the meta object for the attribute list '{@link fr.n7.traitement.Fonction#getEntrees <em>Entrees</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Entrees</em>'.
+	 * @return the meta object for the attribute list '<em>Entrees</em>'.
 	 * @see fr.n7.traitement.Fonction#getEntrees()
 	 * @see #getFonction()
 	 * @generated
 	 */
-	EReference getFonction_Entrees();
+	EAttribute getFonction_Entrees();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.n7.traitement.Fonction#getSorties <em>Sorties</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.n7.traitement.Fonction#getTableName <em>Table Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sorties</em>'.
+	 * @return the meta object for the attribute '<em>Table Name</em>'.
+	 * @see fr.n7.traitement.Fonction#getTableName()
+	 * @see #getFonction()
+	 * @generated
+	 */
+	EAttribute getFonction_TableName();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link fr.n7.traitement.Fonction#getSorties <em>Sorties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Sorties</em>'.
 	 * @see fr.n7.traitement.Fonction#getSorties()
 	 * @see #getFonction()
 	 * @generated
 	 */
-	EReference getFonction_Sorties();
-
-	/**
-	 * Returns the meta object for the reference '{@link fr.n7.traitement.Fonction#getTable <em>Table</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table</em>'.
-	 * @see fr.n7.traitement.Fonction#getTable()
-	 * @see #getFonction()
-	 * @generated
-	 */
-	EReference getFonction_Table();
+	EAttribute getFonction_Sorties();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -228,14 +207,6 @@ public interface TraitementPackage extends EPackage {
 		EClass FONCTION = eINSTANCE.getFonction();
 
 		/**
-		 * The meta object literal for the '<em><b>Chemin</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FONCTION__CHEMIN = eINSTANCE.getFonction_Chemin();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -244,28 +215,28 @@ public interface TraitementPackage extends EPackage {
 		EAttribute FONCTION__NAME = eINSTANCE.getFonction_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Entrees</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Entrees</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FONCTION__ENTREES = eINSTANCE.getFonction_Entrees();
+		EAttribute FONCTION__ENTREES = eINSTANCE.getFonction_Entrees();
 
 		/**
-		 * The meta object literal for the '<em><b>Sorties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Table Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FONCTION__SORTIES = eINSTANCE.getFonction_Sorties();
+		EAttribute FONCTION__TABLE_NAME = eINSTANCE.getFonction_TableName();
 
 		/**
-		 * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sorties</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FONCTION__TABLE = eINSTANCE.getFonction_Table();
+		EAttribute FONCTION__SORTIES = eINSTANCE.getFonction_Sorties();
 
 	}
 

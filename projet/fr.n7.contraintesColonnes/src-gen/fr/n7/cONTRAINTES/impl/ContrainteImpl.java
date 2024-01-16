@@ -42,243 +42,236 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ContrainteImpl extends MinimalEObjectImpl.Container implements Contrainte
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getColonnes() <em>Colonnes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getColonnes() <em>Colonnes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColonnes()
-   * @generated
-   * @ordered
-   */
+	 * @see #getColonnes()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Colonne> colonnes;
 
   /**
-   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpression()
-   * @generated
-   * @ordered
-   */
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
   protected EList<Expression> expression;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ContrainteImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return CONTRAINTESPackage.Literals.CONTRAINTE;
-  }
+		return CONTRAINTESPackage.Literals.CONTRAINTE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getName()
   {
-    return name;
-  }
+		return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setName(String newName)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.CONTRAINTE__NAME, oldName, name));
-  }
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.CONTRAINTE__NAME, oldName, name));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EList<Colonne> getColonnes()
   {
-    if (colonnes == null)
-    {
-      colonnes = new EObjectContainmentEList<Colonne>(Colonne.class, this, CONTRAINTESPackage.CONTRAINTE__COLONNES);
-    }
-    return colonnes;
-  }
+		if (colonnes == null) {
+			colonnes = new EObjectContainmentEList<Colonne>(Colonne.class, this, CONTRAINTESPackage.CONTRAINTE__COLONNES);
+		}
+		return colonnes;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EList<Expression> getExpression()
   {
-    if (expression == null)
-    {
-      expression = new EObjectContainmentEList<Expression>(Expression.class, this, CONTRAINTESPackage.CONTRAINTE__EXPRESSION);
-    }
-    return expression;
-  }
+		if (expression == null) {
+			expression = new EObjectContainmentEList<Expression>(Expression.class, this, CONTRAINTESPackage.CONTRAINTE__EXPRESSION);
+		}
+		return expression;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.CONTRAINTE__COLONNES:
-        return ((InternalEList<?>)getColonnes()).basicRemove(otherEnd, msgs);
-      case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
-        return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.CONTRAINTE__COLONNES:
+				return ((InternalEList<?>)getColonnes()).basicRemove(otherEnd, msgs);
+			case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
+				return ((InternalEList<?>)getExpression()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.CONTRAINTE__NAME:
-        return getName();
-      case CONTRAINTESPackage.CONTRAINTE__COLONNES:
-        return getColonnes();
-      case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
-        return getExpression();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.CONTRAINTE__NAME:
+				return getName();
+			case CONTRAINTESPackage.CONTRAINTE__COLONNES:
+				return getColonnes();
+			case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
+				return getExpression();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.CONTRAINTE__NAME:
-        setName((String)newValue);
-        return;
-      case CONTRAINTESPackage.CONTRAINTE__COLONNES:
-        getColonnes().clear();
-        getColonnes().addAll((Collection<? extends Colonne>)newValue);
-        return;
-      case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
-        getExpression().clear();
-        getExpression().addAll((Collection<? extends Expression>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.CONTRAINTE__NAME:
+				setName((String)newValue);
+				return;
+			case CONTRAINTESPackage.CONTRAINTE__COLONNES:
+				getColonnes().clear();
+				getColonnes().addAll((Collection<? extends Colonne>)newValue);
+				return;
+			case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
+				getExpression().clear();
+				getExpression().addAll((Collection<? extends Expression>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.CONTRAINTE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case CONTRAINTESPackage.CONTRAINTE__COLONNES:
-        getColonnes().clear();
-        return;
-      case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
-        getExpression().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.CONTRAINTE__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case CONTRAINTESPackage.CONTRAINTE__COLONNES:
+				getColonnes().clear();
+				return;
+			case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
+				getExpression().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.CONTRAINTE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case CONTRAINTESPackage.CONTRAINTE__COLONNES:
-        return colonnes != null && !colonnes.isEmpty();
-      case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
-        return expression != null && !expression.isEmpty();
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.CONTRAINTE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case CONTRAINTESPackage.CONTRAINTE__COLONNES:
+				return colonnes != null && !colonnes.isEmpty();
+			case CONTRAINTESPackage.CONTRAINTE__EXPRESSION:
+				return expression != null && !expression.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ContrainteImpl

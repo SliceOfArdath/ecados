@@ -9,8 +9,6 @@ import fr.n7.traitement.TraitementPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import tableur.TableurPackage;
@@ -117,7 +115,7 @@ public class TraitementPackageImpl extends EPackageImpl implements TraitementPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFonction_Chemin() {
+	public EAttribute getFonction_Name() {
 		return (EAttribute) fonctionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -126,35 +124,26 @@ public class TraitementPackageImpl extends EPackageImpl implements TraitementPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFonction_Name() {
+	public EAttribute getFonction_Entrees() {
+		return (EAttribute) fonctionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFonction_TableName() {
+		return (EAttribute) fonctionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFonction_Sorties() {
 		return (EAttribute) fonctionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFonction_Entrees() {
-		return (EReference) fonctionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFonction_Sorties() {
-		return (EReference) fonctionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFonction_Table() {
-		return (EReference) fonctionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -187,11 +176,10 @@ public class TraitementPackageImpl extends EPackageImpl implements TraitementPac
 
 		// Create classes and their features
 		fonctionEClass = createEClass(FONCTION);
-		createEAttribute(fonctionEClass, FONCTION__CHEMIN);
 		createEAttribute(fonctionEClass, FONCTION__NAME);
-		createEReference(fonctionEClass, FONCTION__ENTREES);
-		createEReference(fonctionEClass, FONCTION__SORTIES);
-		createEReference(fonctionEClass, FONCTION__TABLE);
+		createEAttribute(fonctionEClass, FONCTION__SORTIES);
+		createEAttribute(fonctionEClass, FONCTION__ENTREES);
+		createEAttribute(fonctionEClass, FONCTION__TABLE_NAME);
 	}
 
 	/**
@@ -218,10 +206,6 @@ public class TraitementPackageImpl extends EPackageImpl implements TraitementPac
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		TableurPackage theTableurPackage = (TableurPackage) EPackage.Registry.INSTANCE
-				.getEPackage(TableurPackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -231,19 +215,14 @@ public class TraitementPackageImpl extends EPackageImpl implements TraitementPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(fonctionEClass, Fonction.class, "Fonction", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFonction_Chemin(), ecorePackage.getEString(), "chemin", null, 1, 1, Fonction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFonction_Name(), ecorePackage.getEString(), "name", null, 1, 1, Fonction.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFonction_Entrees(), theTableurPackage.getColonneDonnee(), null, "entrees", null, 0, -1,
-				Fonction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFonction_Sorties(), theTableurPackage.getDonneeCalculee(), null, "sorties", null, 0, -1,
-				Fonction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFonction_Table(), theTableurPackage.getTable(), null, "table", null, 1, 1, Fonction.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFonction_Sorties(), ecorePackage.getEString(), "sorties", null, 0, -1, Fonction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFonction_Entrees(), ecorePackage.getEString(), "entrees", null, 0, -1, Fonction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFonction_TableName(), ecorePackage.getEString(), "tableName", null, 1, 1, Fonction.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

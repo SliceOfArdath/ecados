@@ -21,182 +21,176 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum OperandeUnaireType implements Enumerator
 {
   /**
-   * The '<em><b>Non</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Non</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NON_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #NON_VALUE
+	 * @generated
+	 * @ordered
+	 */
   NON(0, "non", "!");
 
   /**
-   * The '<em><b>Non</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Non</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NON
-   * @model name="non" literal="!"
-   * @generated
-   * @ordered
-   */
+	 * @see #NON
+	 * @model name="non" literal="!"
+	 * @generated
+	 * @ordered
+	 */
   public static final int NON_VALUE = 0;
 
   /**
-   * An array of all the '<em><b>Operande Unaire Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Operande Unaire Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private static final OperandeUnaireType[] VALUES_ARRAY =
-    new OperandeUnaireType[]
-    {
-      NON,
-    };
+    new OperandeUnaireType[] {
+			NON,
+		};
 
   /**
-   * A public read-only list of all the '<em><b>Operande Unaire Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Operande Unaire Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static final List<OperandeUnaireType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param literal the literal.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static OperandeUnaireType get(String literal)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      OperandeUnaireType result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			OperandeUnaireType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param name the name.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static OperandeUnaireType getByName(String name)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      OperandeUnaireType result = VALUES_ARRAY[i];
-      if (result.getName().equals(name))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			OperandeUnaireType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Operande Unaire Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the integer value.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static OperandeUnaireType get(int value)
   {
-    switch (value)
-    {
-      case NON_VALUE: return NON;
-    }
-    return null;
-  }
+		switch (value) {
+			case NON_VALUE: return NON;
+		}
+		return null;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final int value;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String name;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String literal;
 
   /**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private OperandeUnaireType(int value, String name, String literal)
   {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int getValue()
   {
-    return value;
-  }
+	  return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getName()
   {
-    return name;
-  }
+	  return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getLiteral()
   {
-    return literal;
-  }
+	  return literal;
+	}
 
   /**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    return literal;
-  }
+		return literal;
+	}
   
 } //OperandeUnaireType

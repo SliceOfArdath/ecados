@@ -1,0 +1,76 @@
+[comment encoding = UTF-8 /]
+[module toTxt('http://www.n7.fr/CONTRAINTES')]
+
+
+[template public contraintesToTxt(anEnsembleContraintes : EnsembleContraintes)]
+[comment @main/]
+[for (aContrainte : Contrainte | anEnsembleContraintes.contraintes)]
+	[file (aContrainte.name + '.txt', false, 'UTF-8')]
+contrainte [aContrainte.name/] ['('/][let colonnes : OrderedSet(Colonne) = aContrainte.getColonnes()][for (c : Colonne | colonnes) separator (',') ][c.name/][/for][/let][')'/][' {'/]
+[let exps : OrderedSet(Expression) = aContrainte.getExpressions()]
+	[for (e : Expression | exps)]
+	 	[e.translateExpression()/][';'/]
+	[/for]
+[/let]['}'/]
+[/file]
+[/for]
+[/template]
+
+[query public getColonnes(c : Contrainte) : OrderedSet(Colonne)=
+	c.colonnes -> select(e | e.oclIsTypeOf(Colonne))
+		-> collect(c | c.oclAsType(Colonne))
+		-> asOrderedSet()
+/]
+
+[query public getExpressions(c : Contrainte) : OrderedSet(Expression)=
+	c.expression -> select(e | e.oclIsTypeOf(Expression))
+		-> collect(c | c.oclAsType(Expression))
+		-> asOrderedSet()
+/]
+
+[template public translateExpression(e : Expression)]
+	[if e.oclIsTypeOf(Comparaison)]
+		['(value '/][e.eGet('comparateur').toCompare()/] [e.eGet('constante').toString()/][')'/]
+	[elseif e.oclIsTypeOf(OperationBinaire)]
+		[e.toOperationBinaire().eGet('contrainteGauche').translateExpression()/][e.toOperationBinaire().eGet('operande').toBinaire()/][e.toOperationBinaire().eGet('contrainteDroite').translateExpression()/]
+	[elseif e.oclIsTypeOf(OperationUnaire)]
+		[e.toOperationUnaire().eGet('operande').toUnaire()/][e.toOperationUnaire().eGet('contrainte').translateExpression()/]
+	[/if]
+[/template]
+
+[query public toOperationBinaire(e : Expression) : OperationBinaire=
+	e
+/]
+[query public toOperationUnaire(e : Expression) : OperationUnaire=
+	e
+/]
+
+[query public toCompare(c : ComparateurType) : String=
+	if c = ComparateurType::inf then
+		'<'
+	else if c = ComparateurType::infeg then
+		'<='
+	else if c = ComparateurType::sup then
+		'>'
+	else if c = ComparateurType::supeg then
+		'>='
+	else 
+		'='
+	endif endif endif endif
+/]
+
+[query public toBinaire(op : OperandeBinaireType) : String=
+	if op = OperandeBinaireType::_and then
+		' and '
+	else
+		' or '
+	endif
+/]
+
+[query public toUnaire(op : OperandeUnaireType) : String=
+	if op = OperandeUnaireType::non then
+		'!'
+	else
+		''
+	endif
+/]

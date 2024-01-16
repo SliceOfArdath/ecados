@@ -255,6 +255,15 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDonneeCalculee_NomFonction() {
+		return (EAttribute) donneeCalculeeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColonneID() {
 		return colonneIDEClass;
 	}
@@ -346,6 +355,7 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 
 		donneeCalculeeEClass = createEClass(DONNEE_CALCULEE);
 		createEReference(donneeCalculeeEClass, DONNEE_CALCULEE__FONCTION);
+		createEAttribute(donneeCalculeeEClass, DONNEE_CALCULEE__NOM_FONCTION);
 
 		colonneIDEClass = createEClass(COLONNE_ID);
 
@@ -423,6 +433,9 @@ public class TableurPackageImpl extends EPackageImpl implements TableurPackage {
 		initEReference(getDonneeCalculee_Fonction(), theTraitementPackage.getFonction(), null, "fonction", null, 1, 1,
 				DonneeCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDonneeCalculee_NomFonction(), ecorePackage.getEString(), "nomFonction", null, 1, 1,
+				DonneeCalculee.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(colonneIDEClass, ColonneID.class, "ColonneID", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

@@ -16,83 +16,83 @@ import org.eclipse.emf.ecore.EFactory;
 public interface CONTRAINTESFactory extends EFactory
 {
   /**
-   * The singleton instance of the factory.
-   * <!-- begin-user-doc -->
+	 * The singleton instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   CONTRAINTESFactory eINSTANCE = fr.n7.cONTRAINTES.impl.CONTRAINTESFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Ensemble Contraintes</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Ensemble Contraintes</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ensemble Contraintes</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Ensemble Contraintes</em>'.
+	 * @generated
+	 */
   EnsembleContraintes createEnsembleContraintes();
 
   /**
-   * Returns a new object of class '<em>Contrainte</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Contrainte</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contrainte</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Contrainte</em>'.
+	 * @generated
+	 */
   Contrainte createContrainte();
 
   /**
-   * Returns a new object of class '<em>Colonne</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Colonne</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Colonne</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Colonne</em>'.
+	 * @generated
+	 */
   Colonne createColonne();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Expression</em>'.
+	 * @generated
+	 */
   Expression createExpression();
 
   /**
-   * Returns a new object of class '<em>Comparaison</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Comparaison</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comparaison</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Comparaison</em>'.
+	 * @generated
+	 */
   Comparaison createComparaison();
 
   /**
-   * Returns a new object of class '<em>Operation Binaire</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Operation Binaire</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation Binaire</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Operation Binaire</em>'.
+	 * @generated
+	 */
   OperationBinaire createOperationBinaire();
 
   /**
-   * Returns a new object of class '<em>Operation Unaire</em>'.
-   * <!-- begin-user-doc -->
+	 * Returns a new object of class '<em>Operation Unaire</em>'.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Operation Unaire</em>'.
-   * @generated
-   */
+	 * @return a new object of class '<em>Operation Unaire</em>'.
+	 * @generated
+	 */
   OperationUnaire createOperationUnaire();
 
   /**
-   * Returns the package supported by this factory.
-   * <!-- begin-user-doc -->
+	 * Returns the package supported by this factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the package supported by this factory.
-   * @generated
-   */
+	 * @return the package supported by this factory.
+	 * @generated
+	 */
   CONTRAINTESPackage getCONTRAINTESPackage();
 
 } //CONTRAINTESFactory

@@ -10,6 +10,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import tableur.DonneeCalculee;
 import tableur.TableurPackage;
 
@@ -42,6 +44,7 @@ public class DonneeCalculeeItemProvider extends ColonneDonneeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addFonctionPropertyDescriptor(object);
+			addNomFonctionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -59,6 +62,22 @@ public class DonneeCalculeeItemProvider extends ColonneDonneeItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_DonneeCalculee_fonction_feature",
 								"_UI_DonneeCalculee_type"),
 						TableurPackage.Literals.DONNEE_CALCULEE__FONCTION, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nom Fonction feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNomFonctionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DonneeCalculee_nomFonction_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DonneeCalculee_nomFonction_feature",
+								"_UI_DonneeCalculee_type"),
+						TableurPackage.Literals.DONNEE_CALCULEE__NOM_FONCTION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -105,6 +124,12 @@ public class DonneeCalculeeItemProvider extends ColonneDonneeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DonneeCalculee.class)) {
+		case TableurPackage.DONNEE_CALCULEE__NOM_FONCTION:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

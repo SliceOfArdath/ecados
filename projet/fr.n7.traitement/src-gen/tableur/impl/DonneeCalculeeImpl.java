@@ -23,6 +23,7 @@ import tableur.TableurPackage;
  * </p>
  * <ul>
  *   <li>{@link tableur.impl.DonneeCalculeeImpl#getFonction <em>Fonction</em>}</li>
+ *   <li>{@link tableur.impl.DonneeCalculeeImpl#getNomFonction <em>Nom Fonction</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +38,25 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 	 * @ordered
 	 */
 	protected Fonction fonction;
+
+	/**
+	 * The default value of the '{@link #getNomFonction() <em>Nom Fonction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNomFonction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NOM_FONCTION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getNomFonction() <em>Nom Fonction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNomFonction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nomFonction = NOM_FONCTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +122,28 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNomFonction() {
+		return nomFonction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNomFonction(String newNomFonction) {
+		String oldNomFonction = nomFonction;
+		nomFonction = newNomFonction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TableurPackage.DONNEE_CALCULEE__NOM_FONCTION,
+					oldNomFonction, nomFonction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -109,6 +151,8 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 			if (resolve)
 				return getFonction();
 			return basicGetFonction();
+		case TableurPackage.DONNEE_CALCULEE__NOM_FONCTION:
+			return getNomFonction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -123,6 +167,9 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 		switch (featureID) {
 		case TableurPackage.DONNEE_CALCULEE__FONCTION:
 			setFonction((Fonction) newValue);
+			return;
+		case TableurPackage.DONNEE_CALCULEE__NOM_FONCTION:
+			setNomFonction((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,6 +186,9 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 		case TableurPackage.DONNEE_CALCULEE__FONCTION:
 			setFonction((Fonction) null);
 			return;
+		case TableurPackage.DONNEE_CALCULEE__NOM_FONCTION:
+			setNomFonction(NOM_FONCTION_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -153,8 +203,27 @@ public class DonneeCalculeeImpl extends ColonneDonneeImpl implements DonneeCalcu
 		switch (featureID) {
 		case TableurPackage.DONNEE_CALCULEE__FONCTION:
 			return fonction != null;
+		case TableurPackage.DONNEE_CALCULEE__NOM_FONCTION:
+			return NOM_FONCTION_EDEFAULT == null ? nomFonction != null : !NOM_FONCTION_EDEFAULT.equals(nomFonction);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (nomFonction: ");
+		result.append(nomFonction);
+		result.append(')');
+		return result.toString();
 	}
 
 } //DonneeCalculeeImpl

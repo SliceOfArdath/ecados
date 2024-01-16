@@ -23,274 +23,268 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 public class CONTRAINTESFactoryImpl extends EFactoryImpl implements CONTRAINTESFactory
 {
   /**
-   * Creates the default factory implementation.
-   * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static CONTRAINTESFactory init()
   {
-    try
-    {
-      CONTRAINTESFactory theCONTRAINTESFactory = (CONTRAINTESFactory)EPackage.Registry.INSTANCE.getEFactory(CONTRAINTESPackage.eNS_URI);
-      if (theCONTRAINTESFactory != null)
-      {
-        return theCONTRAINTESFactory;
-      }
-    }
-    catch (Exception exception)
-    {
-      EcorePlugin.INSTANCE.log(exception);
-    }
-    return new CONTRAINTESFactoryImpl();
-  }
+		try {
+			CONTRAINTESFactory theCONTRAINTESFactory = (CONTRAINTESFactory)EPackage.Registry.INSTANCE.getEFactory(CONTRAINTESPackage.eNS_URI);
+			if (theCONTRAINTESFactory != null) {
+				return theCONTRAINTESFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new CONTRAINTESFactoryImpl();
+	}
 
   /**
-   * Creates an instance of the factory.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public CONTRAINTESFactoryImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EObject create(EClass eClass)
   {
-    switch (eClass.getClassifierID())
-    {
-      case CONTRAINTESPackage.ENSEMBLE_CONTRAINTES: return createEnsembleContraintes();
-      case CONTRAINTESPackage.CONTRAINTE: return createContrainte();
-      case CONTRAINTESPackage.COLONNE: return createColonne();
-      case CONTRAINTESPackage.EXPRESSION: return createExpression();
-      case CONTRAINTESPackage.COMPARAISON: return createComparaison();
-      case CONTRAINTESPackage.OPERATION_BINAIRE: return createOperationBinaire();
-      case CONTRAINTESPackage.OPERATION_UNAIRE: return createOperationUnaire();
-      default:
-        throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eClass.getClassifierID()) {
+			case CONTRAINTESPackage.ENSEMBLE_CONTRAINTES: return createEnsembleContraintes();
+			case CONTRAINTESPackage.CONTRAINTE: return createContrainte();
+			case CONTRAINTESPackage.COLONNE: return createColonne();
+			case CONTRAINTESPackage.EXPRESSION: return createExpression();
+			case CONTRAINTESPackage.COMPARAISON: return createComparaison();
+			case CONTRAINTESPackage.OPERATION_BINAIRE: return createOperationBinaire();
+			case CONTRAINTESPackage.OPERATION_UNAIRE: return createOperationUnaire();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object createFromString(EDataType eDataType, String initialValue)
   {
-    switch (eDataType.getClassifierID())
-    {
-      case CONTRAINTESPackage.COMPARATEUR_TYPE:
-        return createComparateurTypeFromString(eDataType, initialValue);
-      case CONTRAINTESPackage.OPERANDE_BINAIRE_TYPE:
-        return createOperandeBinaireTypeFromString(eDataType, initialValue);
-      case CONTRAINTESPackage.OPERANDE_UNAIRE_TYPE:
-        return createOperandeUnaireTypeFromString(eDataType, initialValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eDataType.getClassifierID()) {
+			case CONTRAINTESPackage.COMPARATEUR_TYPE:
+				return createComparateurTypeFromString(eDataType, initialValue);
+			case CONTRAINTESPackage.OPERANDE_BINAIRE_TYPE:
+				return createOperandeBinaireTypeFromString(eDataType, initialValue);
+			case CONTRAINTESPackage.OPERANDE_UNAIRE_TYPE:
+				return createOperandeUnaireTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    switch (eDataType.getClassifierID())
-    {
-      case CONTRAINTESPackage.COMPARATEUR_TYPE:
-        return convertComparateurTypeToString(eDataType, instanceValue);
-      case CONTRAINTESPackage.OPERANDE_BINAIRE_TYPE:
-        return convertOperandeBinaireTypeToString(eDataType, instanceValue);
-      case CONTRAINTESPackage.OPERANDE_UNAIRE_TYPE:
-        return convertOperandeUnaireTypeToString(eDataType, instanceValue);
-      default:
-        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-    }
-  }
+		switch (eDataType.getClassifierID()) {
+			case CONTRAINTESPackage.COMPARATEUR_TYPE:
+				return convertComparateurTypeToString(eDataType, instanceValue);
+			case CONTRAINTESPackage.OPERANDE_BINAIRE_TYPE:
+				return convertOperandeBinaireTypeToString(eDataType, instanceValue);
+			case CONTRAINTESPackage.OPERANDE_UNAIRE_TYPE:
+				return convertOperandeUnaireTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EnsembleContraintes createEnsembleContraintes()
   {
-    EnsembleContraintesImpl ensembleContraintes = new EnsembleContraintesImpl();
-    return ensembleContraintes;
-  }
+		EnsembleContraintesImpl ensembleContraintes = new EnsembleContraintesImpl();
+		return ensembleContraintes;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Contrainte createContrainte()
   {
-    ContrainteImpl contrainte = new ContrainteImpl();
-    return contrainte;
-  }
+		ContrainteImpl contrainte = new ContrainteImpl();
+		return contrainte;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Colonne createColonne()
   {
-    ColonneImpl colonne = new ColonneImpl();
-    return colonne;
-  }
+		ColonneImpl colonne = new ColonneImpl();
+		return colonne;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Expression createExpression()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
-  }
+		ExpressionImpl expression = new ExpressionImpl();
+		return expression;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Comparaison createComparaison()
   {
-    ComparaisonImpl comparaison = new ComparaisonImpl();
-    return comparaison;
-  }
+		ComparaisonImpl comparaison = new ComparaisonImpl();
+		return comparaison;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public OperationBinaire createOperationBinaire()
   {
-    OperationBinaireImpl operationBinaire = new OperationBinaireImpl();
-    return operationBinaire;
-  }
+		OperationBinaireImpl operationBinaire = new OperationBinaireImpl();
+		return operationBinaire;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public OperationUnaire createOperationUnaire()
   {
-    OperationUnaireImpl operationUnaire = new OperationUnaireImpl();
-    return operationUnaire;
-  }
+		OperationUnaireImpl operationUnaire = new OperationUnaireImpl();
+		return operationUnaire;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ComparateurType createComparateurTypeFromString(EDataType eDataType, String initialValue)
   {
-    ComparateurType result = ComparateurType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
+		ComparateurType result = ComparateurType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String convertComparateurTypeToString(EDataType eDataType, Object instanceValue)
   {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public OperandeBinaireType createOperandeBinaireTypeFromString(EDataType eDataType, String initialValue)
   {
-    OperandeBinaireType result = OperandeBinaireType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
+		OperandeBinaireType result = OperandeBinaireType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String convertOperandeBinaireTypeToString(EDataType eDataType, Object instanceValue)
   {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public OperandeUnaireType createOperandeUnaireTypeFromString(EDataType eDataType, String initialValue)
   {
-    OperandeUnaireType result = OperandeUnaireType.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
+		OperandeUnaireType result = OperandeUnaireType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public String convertOperandeUnaireTypeToString(EDataType eDataType, Object instanceValue)
   {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public CONTRAINTESPackage getCONTRAINTESPackage()
   {
-    return (CONTRAINTESPackage)getEPackage();
-  }
+		return (CONTRAINTESPackage)getEPackage();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @deprecated
-   * @generated
-   */
+	 * @deprecated
+	 * @generated
+	 */
   @Deprecated
   public static CONTRAINTESPackage getPackage()
   {
-    return CONTRAINTESPackage.eINSTANCE;
-  }
+		return CONTRAINTESPackage.eINSTANCE;
+	}
 
 } //CONTRAINTESFactoryImpl

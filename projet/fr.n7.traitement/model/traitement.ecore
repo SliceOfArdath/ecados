@@ -2,13 +2,12 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="traitement" nsURI="http://www.example.org/traitement" nsPrefix="traitement">
   <eClassifiers xsi:type="ecore:EClass" name="Fonction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chemin" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="entrees" upperBound="-1"
-        eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//ColonneDonnee"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sorties" upperBound="-1"
-        eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//DonneeCalculee"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="ecore:EClass ../../fr.n7.tableur/model/tableur.ecore#//Table"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sorties" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrees" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tableName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

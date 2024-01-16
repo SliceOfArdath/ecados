@@ -24,50 +24,50 @@ package fr.n7.cONTRAINTES;
 public interface Comparaison extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Comparateur</b></em>' attribute.
-   * The literals are from the enumeration {@link fr.n7.cONTRAINTES.ComparateurType}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Comparateur</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.n7.cONTRAINTES.ComparateurType}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Comparateur</em>' attribute.
-   * @see fr.n7.cONTRAINTES.ComparateurType
-   * @see #setComparateur(ComparateurType)
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getComparaison_Comparateur()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Comparateur</em>' attribute.
+	 * @see fr.n7.cONTRAINTES.ComparateurType
+	 * @see #setComparateur(ComparateurType)
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getComparaison_Comparateur()
+	 * @model
+	 * @generated
+	 */
   ComparateurType getComparateur();
 
   /**
-   * Sets the value of the '{@link fr.n7.cONTRAINTES.Comparaison#getComparateur <em>Comparateur</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link fr.n7.cONTRAINTES.Comparaison#getComparateur <em>Comparateur</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Comparateur</em>' attribute.
-   * @see fr.n7.cONTRAINTES.ComparateurType
-   * @see #getComparateur()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Comparateur</em>' attribute.
+	 * @see fr.n7.cONTRAINTES.ComparateurType
+	 * @see #getComparateur()
+	 * @generated
+	 */
   void setComparateur(ComparateurType value);
 
   /**
-   * Returns the value of the '<em><b>Constante</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Constante</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Constante</em>' attribute.
-   * @see #setConstante(float)
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getComparaison_Constante()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Constante</em>' attribute.
+	 * @see #setConstante(float)
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getComparaison_Constante()
+	 * @model
+	 * @generated
+	 */
   float getConstante();
 
   /**
-   * Sets the value of the '{@link fr.n7.cONTRAINTES.Comparaison#getConstante <em>Constante</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link fr.n7.cONTRAINTES.Comparaison#getConstante <em>Constante</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Constante</em>' attribute.
-   * @see #getConstante()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Constante</em>' attribute.
+	 * @see #getConstante()
+	 * @generated
+	 */
   void setConstante(float value);
 
 } // Comparaison

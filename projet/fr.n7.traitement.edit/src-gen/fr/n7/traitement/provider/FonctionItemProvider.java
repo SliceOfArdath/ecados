@@ -51,29 +51,12 @@ public class FonctionItemProvider extends ItemProviderAdapter implements IEditin
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCheminPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addEntreesPropertyDescriptor(object);
 			addSortiesPropertyDescriptor(object);
-			addTablePropertyDescriptor(object);
+			addEntreesPropertyDescriptor(object);
+			addTableNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Chemin feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheminPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Fonction_chemin_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Fonction_chemin_feature",
-								"_UI_Fonction_type"),
-						TraitementPackage.Literals.FONCTION__CHEMIN, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -104,7 +87,24 @@ public class FonctionItemProvider extends ItemProviderAdapter implements IEditin
 						getResourceLocator(), getString("_UI_Fonction_entrees_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Fonction_entrees_feature",
 								"_UI_Fonction_type"),
-						TraitementPackage.Literals.FONCTION__ENTREES, true, false, true, null, null, null));
+						TraitementPackage.Literals.FONCTION__ENTREES, true, false, true,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Table Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTableNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Fonction_tableName_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Fonction_tableName_feature",
+								"_UI_Fonction_type"),
+						TraitementPackage.Literals.FONCTION__TABLE_NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -119,22 +119,8 @@ public class FonctionItemProvider extends ItemProviderAdapter implements IEditin
 						getResourceLocator(), getString("_UI_Fonction_sorties_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Fonction_sorties_feature",
 								"_UI_Fonction_type"),
-						TraitementPackage.Literals.FONCTION__SORTIES, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Table feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Fonction_table_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Fonction_table_feature",
-								"_UI_Fonction_type"),
-						TraitementPackage.Literals.FONCTION__TABLE, true, false, true, null, null, null));
+						TraitementPackage.Literals.FONCTION__SORTIES, true, false, true,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -183,8 +169,8 @@ public class FonctionItemProvider extends ItemProviderAdapter implements IEditin
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Fonction.class)) {
-		case TraitementPackage.FONCTION__CHEMIN:
 		case TraitementPackage.FONCTION__NAME:
+		case TraitementPackage.FONCTION__TABLE_NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

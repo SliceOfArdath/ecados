@@ -3,14 +3,18 @@ package fr.n7.tableur.transformation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -32,8 +36,10 @@ public class Tableur {
 	public static final String DIRECTORY_FONCTION = DIRECTORY_ECADOS + "models/Fonction/";
 	public static final String DIRECTORY_ALGORITHME = DIRECTORY_ECADOS + "models/Algorithme/";
 	public static final String DIRECTORY_CSV = DIRECTORY_ECADOS + "csv_files/";
+	public static final String DIRECTORY_SAVE = DIRECTORY_ECADOS + "generated/";
 	public static final String DIRECTORY_LIBS = DIRECTORY_ECADOS + "libs/";
 	public static final String DIRECTORY_JAVA_DEV = DIRECTORY_ECADOS + "fonctions_developpeur/";
+	public static final String DIRECTORY_CONFIG = DIRECTORY_ECADOS + ".config";
 	
 	
 	Map<String, List<Object>> tableau;
@@ -55,14 +61,43 @@ public class Tableur {
 	 * @param args les arguments
 	 * @throws Exception 
 	 */
-	public Tableur(Table table, String filePath, String[] args) throws Exception {
+	public Tableur(Boolean autoCalcul) throws Exception {
 		// définition des attributs
     	tableau = new Hashtable<String, List<Object>>();
     	colonneID = new LinkedList<String>();
     	colonnesInternes = new Hashtable<String, ColonneDonnee>();
     	colonnesExternes = new Hashtable<String, ColonneExterne>();
-		paths = new Hashtable<String, String>();
 		tables = new Hashtable<String, Table>();
+		paths = new Hashtable<String, String>();
+		fonctions = new Hashtable<String, FonctionTraitement>();
+    	
+    	if (!new File(DIRECTORY_CONFIG).exists()) {
+        	FileWriter fw = new FileWriter(DIRECTORY_CONFIG, false);
+        	fw.write("table: table.xmi\n\ncsv: csv.csv\n\ntableExt: \n- t1.xmi\n\ncsvExt: \n- csv1.csv\n\nfonction: \n- f1.java\n\nlib: \n\n");
+        	fw.close();
+    	}
+		
+		// Parsage du fichier de config
+		Map<String, List<String>> args = ConfigParser.parse(DIRECTORY_CONFIG);
+		if (args.get("tableExt").size() != args.get("csvExt").size()) {
+			throw new Exception(".config is invalid");
+		}
+		
+		// Chemin vers le fichier
+		String filePath = DIRECTORY_CSV + args.get("csv").get(0);
+			
+		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (le modÃ¨le)
+		TableurPackage tablPackageInstance = TableurPackage.eINSTANCE;
+		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+		Map<String, Object> m = reg.getExtensionToFactoryMap();
+        m.put("xmi", new XMIResourceFactoryImpl());
+		
+		URI modelURISource = URI.createURI(DIRECTORY_TABLE + args.get("table").get(0));
+		ResourceSet resSet = new ResourceSetImpl();
+		
+		Resource resourceSource = resSet.getResource(modelURISource, true);
+    	Table table = (Table) resourceSource.getContents().get(0);
+		
 		rw = new ReaderWriter(filePath);
     	this.table = table;
     	   
@@ -73,11 +108,17 @@ public class Tableur {
     	new File(Tableur.DIRECTORY_CSV).mkdirs();
     	new File(Tableur.DIRECTORY_LIBS).mkdirs();
     	new File(Tableur.DIRECTORY_JAVA_DEV).mkdirs();
+    	new File(Tableur.DIRECTORY_SAVE).mkdirs();
+    	
     	
     	parseCommand(args);
 		
     	
-    	importTable(table, filePath, args);
+    	importTable(args);
+    	
+    	if (autoCalcul) {
+    		actualiser();
+    	}
 		
 	}
 	
@@ -89,31 +130,25 @@ public class Tableur {
 				+ "... -f URI1 cheminVersFonction ");
 	}
 	
-	public void parseCommand(String[] args) throws Exception {
-		int i = 2;
-		while (i < args.length) {
-			if (args[i].equals("-t") || args[i].equals("--tables_externes")) {
-				i++;
-				while (i+1 < args.length && !args[i].matches("-[a-zA-Z]") && !args[i].matches("--[a-zA-Z]+")) {
-			    	resolveTableDependancy(DIRECTORY_TABLE + args[i], DIRECTORY_CSV + args[i+1]);
-			    	i+=2;
-				}
+	public void parseCommand(Map<String, List<String>> args) throws Exception {
+		for (int i = 0; i < args.get("tableExt").size(); i++) {
+			    resolveTableDependancy(DIRECTORY_TABLE + args.get("tableExt").get(i), DIRECTORY_CSV + args.get("csvExt").get(i));
 			}
-			else if (args[i].equals("-f") || args[i].equals("--fonction")) {
-				i++;
-				while (i+1 < args.length && !args[i].matches("-[a-zA-Z]") && !args[i].matches("--[a-zA-Z]+")) {
-			    	resolveFonctionDependancy(DIRECTORY_FONCTION + args[i]);
-			    	i++;
-				}
+		for (int i = 0; i < args.get("fonction").size(); i++) {
+			    resolveFonctionDependancy(DIRECTORY_FONCTION + args.get("fonction").get(i));
 			}
-			else {
-				use();
-				throw new Exception("Command line invalid");
+	}
+	
+	public void actualiser() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, RefFonctionException {
+		for (ColonneDonnee c : table.getColonnes()) {
+			if (c instanceof DonneeCalculee) {
+				fonctions.get(((DonneeCalculee) c).getNomFonction()).runFonction(tableau, colonneID.size());
 			}
 		}
 	}
 	
-	public void importTable(Table table, String filePath, String[] args)throws Exception {
+	
+	public void importTable(Map<String, List<String>> args)throws Exception {
 		// import des colonnes
     	if (!rw.open("r")) {
     		throw new Exception("Could not open file");
@@ -122,14 +157,19 @@ public class Tableur {
 		colonneID = rw.readColumn(table.getColonneID().getName());
     	
     	
-    	Map<String, List<String>> tableauString = rw.readGlobal(colonnesInternes.keySet());
+    	Map<String, List<String>> tableauString = rw.readGlobal(getDonneeBruteName());
     	UniversalConverter cv = new UniversalConverter();
     	
     	for (String s : colonnesInternes.keySet()) {
     		ColonneDonnee colonne = colonnesInternes.get(s);
 			System.out.println("Importage de la colonne " + colonne.getName());
 			try {
-	    		tableau.put(s, cv.convert(tableauString.get(s), colonne.getType()));
+				if (colonne instanceof DonneeBrute) {
+					tableau.put(s, cv.convertColumn(tableauString.get(s), colonne.getType()));
+				}
+				else {
+					tableau.put(s,  new LinkedList<Object>());
+				}
 	    	}
 			catch (WrongFormatException e) {
 				System.out.println("Erreur lors de l'import de la colonne " + s + " du tableau : " + e.getMessage());
@@ -143,7 +183,7 @@ public class Tableur {
 		    	System.out.println("Référence à la table " + tNom);
 				List<String> oldList = refColonne((ColonneExterne) colonne, paths.get(tNom));
 				List<String> newList = homogenisation(oldList, tNom, paths.get(tNom));
-				tableau.put(colonne.getName(), new UniversalConverter().convert(newList, colonne.getType()));
+				tableau.put(colonne.getName(), new UniversalConverter().convertColumn(newList, colonne.getType()));
 	    	}
 			catch (WrongFormatException e) {
 				System.out.println("Erreur lors de l'import de la colonne " + s + " du tableau : " + e.getMessage());
@@ -152,6 +192,14 @@ public class Tableur {
     	
     	rw.close();
 		
+	}
+	
+	private Set<String> getDonneeBruteName() {
+		Set<String> l = new LinkedHashSet<String>();
+		for (ColonneDonnee c : table.getColonnes()) {
+			if (c instanceof DonneeBrute) l.add(c.getName());
+		}
+		return l;
 	}
 	
 	/** importe les colonnes de la Table table dans la map colonnes
@@ -196,12 +244,26 @@ public class Tableur {
 		
 		for (String fNom : fonctions.keySet()) {
 			Fonction f = fonctions.get(fNom).getFonction();
-			for (DonneeCalculee c : f.getSorties()) {
-				if (c.getName().equals(dc.getName())) return f;
+			if (f.getName().equals(dc.getNomFonction())) {
+				dc.setFonction(f);
+				return f;
 			}
 		}
 		throw new RefTableException(dc.getName());
     	
+	}
+	
+	public boolean save(String path) {
+		rw.setFilePath(Tableur.DIRECTORY_SAVE, table.getName());
+	    try {
+	    	rw.open("w");
+			rw.writeGlobal(tableau, table.getColonneID().getName(), colonneID);
+			rw.close();
+			return true;
+	    } catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/** Importe les colonnes extérieurs dans tableau
@@ -260,9 +322,9 @@ public class Tableur {
     	paths.put(tableExt.getName(), arg2);
 	}
 	
-	private void resolveFonctionDependancy(String arg) throws RefTableException {
+	private void resolveFonctionDependancy(String arg) throws RefTableException, NoSuchMethodException, SecurityException {
 		
-		TraitementPackage tabExtPackageInstance = TraitementPackage.eINSTANCE;
+		TraitementPackage traitPackageInstance = TraitementPackage.eINSTANCE;
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> m = reg.getExtensionToFactoryMap();
         m.put("xmi", new XMIResourceFactoryImpl());
@@ -271,35 +333,22 @@ public class Tableur {
 		
 		Resource resourceSource = resSet.getResource(modelURISource, true);
     	Fonction fonction = (Fonction) resourceSource.getContents().get(0);
+    	fonction.getSorties().clear(); //>>>>>:^DDD
     	
-    	fonctions.put(fonction.getName(), new FonctionTraitement(fonction));
+    	FonctionTraitement ft = new FonctionTraitement(fonction);
+    	fonctions.put(fonction.getName(), ft);
 	}
 	
 	
 	
 
 	public static void main(String[] args) {
-		
-		// Chemin vers le fichier
-		String filePath = DIRECTORY_CSV + args[1];
-			
-		// CrÃ©er un objet resourceSetImpl qui contiendra une ressource EMF (le modÃ¨le)
-		TableurPackage tablPackageInstance = TableurPackage.eINSTANCE;
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put("xmi", new XMIResourceFactoryImpl());
-		
-		URI modelURISource = URI.createURI(DIRECTORY_TABLE + args[0]);
-		ResourceSet resSet = new ResourceSetImpl();
-		
-		Resource resourceSource = resSet.getResource(modelURISource, true);
-    	Table table = (Table) resourceSource.getContents().get(0);
     	
-    	
+    	boolean autoCalculate = Boolean.parseBoolean(args[0]);
     	
     	Tableur tableur = null;
     	try {
-    		tableur = new Tableur(table, filePath, args);
+    		tableur = new Tableur(autoCalculate);
 		} catch (RefTableException e) {
 			use();
 			e.printStackTrace();
@@ -310,17 +359,11 @@ public class Tableur {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	System.out.println(tableur.toString());
+
+    	tableur.save(args[1]);
     	
 
-	    tableur.rw.setFilePath(Tableur.DIRECTORY_ECADOS + "temp/", table.getName());
-	    try {
-	    	tableur.rw.open("w");
-			tableur.rw.writeGlobal(tableur.tableau, table.getColonneID().getName(), tableur.colonneID);
-			tableur.rw.close();
-	    } catch (IOException e) {
-			e.printStackTrace();
-		}
+	    
     	return;
     	
 	}

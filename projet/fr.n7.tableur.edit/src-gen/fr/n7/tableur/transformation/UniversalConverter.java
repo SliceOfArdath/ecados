@@ -10,10 +10,16 @@ import java.util.Map;
 
 import fr.n7.tableur.Primitive;
 
-public class UniversalConverter implements Converter<Object>{
+public class UniversalConverter{
 
-	@Override
-	public List<Object> convert(List<String> column, Primitive p) throws WrongFormatException {
+	public Object convert(String s, Primitive p) throws WrongFormatException {
+		List<String> l = new LinkedList<String>();
+		l.add(s);
+		List<Object> lr = convertColumn(l, p);
+		return lr.get(0);
+	} 
+	
+	public List<Object> convertColumn(List<String> column, Primitive p) throws WrongFormatException {
 		
 		switch (p) {
 			case STRING:

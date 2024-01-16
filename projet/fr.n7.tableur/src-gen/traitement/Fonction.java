@@ -2,10 +2,6 @@
  */
 package traitement;
 
-import fr.n7.tableur.ColonneDonnee;
-import fr.n7.tableur.DonneeCalculee;
-
-import fr.n7.tableur.Table;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -21,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link traitement.Fonction#getChemin <em>Chemin</em>}</li>
  *   <li>{@link traitement.Fonction#getName <em>Name</em>}</li>
- *   <li>{@link traitement.Fonction#getEntrees <em>Entrees</em>}</li>
  *   <li>{@link traitement.Fonction#getSorties <em>Sorties</em>}</li>
- *   <li>{@link traitement.Fonction#getTable <em>Table</em>}</li>
+ *   <li>{@link traitement.Fonction#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link traitement.Fonction#getTableName <em>Table Name</em>}</li>
  * </ul>
  *
  * @see traitement.TraitementPackage#getFonction()
@@ -76,49 +72,49 @@ public interface Fonction extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Entrees</b></em>' reference list.
-	 * The list contents are of type {@link fr.n7.tableur.ColonneDonnee}.
+	 * Returns the value of the '<em><b>Entrees</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entrees</em>' reference list.
+	 * @return the value of the '<em>Entrees</em>' attribute list.
 	 * @see traitement.TraitementPackage#getFonction_Entrees()
 	 * @model
 	 * @generated
 	 */
-	EList<ColonneDonnee> getEntrees();
+	EList<String> getEntrees();
 
 	/**
-	 * Returns the value of the '<em><b>Sorties</b></em>' reference list.
-	 * The list contents are of type {@link fr.n7.tableur.DonneeCalculee}.
+	 * Returns the value of the '<em><b>Table Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sorties</em>' reference list.
+	 * @return the value of the '<em>Table Name</em>' attribute.
+	 * @see #setTableName(String)
+	 * @see traitement.TraitementPackage#getFonction_TableName()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getTableName();
+
+	/**
+	 * Sets the value of the '{@link traitement.Fonction#getTableName <em>Table Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Table Name</em>' attribute.
+	 * @see #getTableName()
+	 * @generated
+	 */
+	void setTableName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Sorties</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sorties</em>' attribute list.
 	 * @see traitement.TraitementPackage#getFonction_Sorties()
 	 * @model
 	 * @generated
 	 */
-	EList<DonneeCalculee> getSorties();
-
-	/**
-	 * Returns the value of the '<em><b>Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table</em>' reference.
-	 * @see #setTable(Table)
-	 * @see traitement.TraitementPackage#getFonction_Table()
-	 * @model required="true"
-	 * @generated
-	 */
-	Table getTable();
-
-	/**
-	 * Sets the value of the '{@link traitement.Fonction#getTable <em>Table</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Table</em>' reference.
-	 * @see #getTable()
-	 * @generated
-	 */
-	void setTable(Table value);
+	EList<String> getSorties();
 
 } // Fonction

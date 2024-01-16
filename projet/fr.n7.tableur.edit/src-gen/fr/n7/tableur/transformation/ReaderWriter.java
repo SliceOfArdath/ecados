@@ -86,8 +86,12 @@ public class ReaderWriter {
 			int i = 1;
 			file.getParentFile().mkdirs();
 			while (!file.createNewFile()) {
-				System.out.println("le fichier " + dirPath + fileName + Integer.toString(i++) + ".csv" +" existe déjà, tentative supplémentaire...");
-				file = new File(dirPath + fileName + Integer.toString(i++) + ".csv");
+				String nom;
+				if (i==1) nom = dirPath + fileName; else nom = dirPath + fileName + Integer.toString(i-1);
+				System.out.println("le fichier " + nom + ".csv" +" existe déjà, tentative supplémentaire...");
+				file = new File(dirPath + fileName + Integer.toString(i) + ".csv");
+				filePath = dirPath + fileName + Integer.toString(i) + ".csv";
+				i++;
 			}
 			fw = new FileWriter(filePath);
 			return true;
@@ -182,14 +186,14 @@ public class ReaderWriter {
 		UniversalConverter uc = new UniversalConverter();
 		Map<String, List<String>> mapString = uc.convertGlobalString(map);
 		for (String s : mapString.keySet()) {
-			toWrite.add(s);
+			if (mapString.get(s).size() > 0) toWrite.add(s);
 		}
 		writeLine(toWrite);
 		for (int i = 0; i < cid.size(); i++) {
 			toWrite = new LinkedList<String>();
 			toWrite.add(cid.get(i));
 			for (String s : mapString.keySet()) {
-				toWrite.add(mapString.get(s).get(i));
+				if (mapString.get(s).size() > 0) toWrite.add(mapString.get(s).get(i));
 			}
 			writeLine(toWrite);
 		}

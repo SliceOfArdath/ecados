@@ -2,10 +2,6 @@
  */
 package traitement.impl;
 
-import fr.n7.tableur.ColonneDonnee;
-import fr.n7.tableur.DonneeCalculee;
-
-import fr.n7.tableur.Table;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,13 +9,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import traitement.Fonction;
 import traitement.TraitementPackage;
 
@@ -33,9 +26,9 @@ import traitement.TraitementPackage;
  * <ul>
  *   <li>{@link traitement.impl.FonctionImpl#getChemin <em>Chemin</em>}</li>
  *   <li>{@link traitement.impl.FonctionImpl#getName <em>Name</em>}</li>
- *   <li>{@link traitement.impl.FonctionImpl#getEntrees <em>Entrees</em>}</li>
  *   <li>{@link traitement.impl.FonctionImpl#getSorties <em>Sorties</em>}</li>
- *   <li>{@link traitement.impl.FonctionImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link traitement.impl.FonctionImpl#getEntrees <em>Entrees</em>}</li>
+ *   <li>{@link traitement.impl.FonctionImpl#getTableName <em>Table Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,34 +75,44 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntrees()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ColonneDonnee> entrees;
-
-	/**
-	 * The cached value of the '{@link #getSorties() <em>Sorties</em>}' reference list.
+	 * The cached value of the '{@link #getSorties() <em>Sorties</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSorties()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DonneeCalculee> sorties;
+	protected EList<String> sorties;
 
 	/**
-	 * The cached value of the '{@link #getTable() <em>Table</em>}' reference.
+	 * The cached value of the '{@link #getEntrees() <em>Entrees</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTable()
+	 * @see #getEntrees()
 	 * @generated
 	 * @ordered
 	 */
-	protected Table table;
+	protected EList<String> entrees;
+
+	/**
+	 * The default value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTableName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TABLE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTableName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String tableName = TABLE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,10 +181,9 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ColonneDonnee> getEntrees() {
+	public EList<String> getEntrees() {
 		if (entrees == null) {
-			entrees = new EObjectResolvingEList<ColonneDonnee>(ColonneDonnee.class, this,
-					TraitementPackage.FONCTION__ENTREES);
+			entrees = new EDataTypeUniqueEList<String>(String.class, this, TraitementPackage.FONCTION__ENTREES);
 		}
 		return entrees;
 	}
@@ -191,51 +193,33 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DonneeCalculee> getSorties() {
+	public String getTableName() {
+		return tableName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTableName(String newTableName) {
+		String oldTableName = tableName;
+		tableName = newTableName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TraitementPackage.FONCTION__TABLE_NAME, oldTableName,
+					tableName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getSorties() {
 		if (sorties == null) {
-			sorties = new EObjectResolvingEList<DonneeCalculee>(DonneeCalculee.class, this,
-					TraitementPackage.FONCTION__SORTIES);
+			sorties = new EDataTypeUniqueEList<String>(String.class, this, TraitementPackage.FONCTION__SORTIES);
 		}
 		return sorties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Table getTable() {
-		if (table != null && table.eIsProxy()) {
-			InternalEObject oldTable = (InternalEObject) table;
-			table = (Table) eResolveProxy(oldTable);
-			if (table != oldTable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TraitementPackage.FONCTION__TABLE,
-							oldTable, table));
-			}
-		}
-		return table;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Table basicGetTable() {
-		return table;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTable(Table newTable) {
-		Table oldTable = table;
-		table = newTable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TraitementPackage.FONCTION__TABLE, oldTable, table));
 	}
 
 	/**
@@ -250,14 +234,12 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 			return getChemin();
 		case TraitementPackage.FONCTION__NAME:
 			return getName();
-		case TraitementPackage.FONCTION__ENTREES:
-			return getEntrees();
 		case TraitementPackage.FONCTION__SORTIES:
 			return getSorties();
-		case TraitementPackage.FONCTION__TABLE:
-			if (resolve)
-				return getTable();
-			return basicGetTable();
+		case TraitementPackage.FONCTION__ENTREES:
+			return getEntrees();
+		case TraitementPackage.FONCTION__TABLE_NAME:
+			return getTableName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,16 +259,16 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 		case TraitementPackage.FONCTION__NAME:
 			setName((String) newValue);
 			return;
-		case TraitementPackage.FONCTION__ENTREES:
-			getEntrees().clear();
-			getEntrees().addAll((Collection<? extends ColonneDonnee>) newValue);
-			return;
 		case TraitementPackage.FONCTION__SORTIES:
 			getSorties().clear();
-			getSorties().addAll((Collection<? extends DonneeCalculee>) newValue);
+			getSorties().addAll((Collection<? extends String>) newValue);
 			return;
-		case TraitementPackage.FONCTION__TABLE:
-			setTable((Table) newValue);
+		case TraitementPackage.FONCTION__ENTREES:
+			getEntrees().clear();
+			getEntrees().addAll((Collection<? extends String>) newValue);
+			return;
+		case TraitementPackage.FONCTION__TABLE_NAME:
+			setTableName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -306,14 +288,14 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 		case TraitementPackage.FONCTION__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case TraitementPackage.FONCTION__ENTREES:
-			getEntrees().clear();
-			return;
 		case TraitementPackage.FONCTION__SORTIES:
 			getSorties().clear();
 			return;
-		case TraitementPackage.FONCTION__TABLE:
-			setTable((Table) null);
+		case TraitementPackage.FONCTION__ENTREES:
+			getEntrees().clear();
+			return;
+		case TraitementPackage.FONCTION__TABLE_NAME:
+			setTableName(TABLE_NAME_EDEFAULT);
 			return;
 		}
 		super.eUnset(featureID);
@@ -331,12 +313,12 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 			return CHEMIN_EDEFAULT == null ? chemin != null : !CHEMIN_EDEFAULT.equals(chemin);
 		case TraitementPackage.FONCTION__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case TraitementPackage.FONCTION__ENTREES:
-			return entrees != null && !entrees.isEmpty();
 		case TraitementPackage.FONCTION__SORTIES:
 			return sorties != null && !sorties.isEmpty();
-		case TraitementPackage.FONCTION__TABLE:
-			return table != null;
+		case TraitementPackage.FONCTION__ENTREES:
+			return entrees != null && !entrees.isEmpty();
+		case TraitementPackage.FONCTION__TABLE_NAME:
+			return TABLE_NAME_EDEFAULT == null ? tableName != null : !TABLE_NAME_EDEFAULT.equals(tableName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -356,6 +338,12 @@ public class FonctionImpl extends MinimalEObjectImpl.Container implements Foncti
 		result.append(chemin);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", sorties: ");
+		result.append(sorties);
+		result.append(", entrees: ");
+		result.append(entrees);
+		result.append(", tableName: ");
+		result.append(tableName);
 		result.append(')');
 		return result.toString();
 	}

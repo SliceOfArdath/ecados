@@ -30,209 +30,205 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ComparaisonImpl extends ExpressionImpl implements Comparaison
 {
   /**
-   * The default value of the '{@link #getComparateur() <em>Comparateur</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getComparateur() <em>Comparateur</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComparateur()
-   * @generated
-   * @ordered
-   */
+	 * @see #getComparateur()
+	 * @generated
+	 * @ordered
+	 */
   protected static final ComparateurType COMPARATEUR_EDEFAULT = ComparateurType.INF;
 
   /**
-   * The cached value of the '{@link #getComparateur() <em>Comparateur</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getComparateur() <em>Comparateur</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComparateur()
-   * @generated
-   * @ordered
-   */
+	 * @see #getComparateur()
+	 * @generated
+	 * @ordered
+	 */
   protected ComparateurType comparateur = COMPARATEUR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getConstante() <em>Constante</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getConstante() <em>Constante</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstante()
-   * @generated
-   * @ordered
-   */
+	 * @see #getConstante()
+	 * @generated
+	 * @ordered
+	 */
   protected static final float CONSTANTE_EDEFAULT = 0.0F;
 
   /**
-   * The cached value of the '{@link #getConstante() <em>Constante</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getConstante() <em>Constante</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConstante()
-   * @generated
-   * @ordered
-   */
+	 * @see #getConstante()
+	 * @generated
+	 * @ordered
+	 */
   protected float constante = CONSTANTE_EDEFAULT;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ComparaisonImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return CONTRAINTESPackage.Literals.COMPARAISON;
-  }
+		return CONTRAINTESPackage.Literals.COMPARAISON;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public ComparateurType getComparateur()
   {
-    return comparateur;
-  }
+		return comparateur;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setComparateur(ComparateurType newComparateur)
   {
-    ComparateurType oldComparateur = comparateur;
-    comparateur = newComparateur == null ? COMPARATEUR_EDEFAULT : newComparateur;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.COMPARAISON__COMPARATEUR, oldComparateur, comparateur));
-  }
+		ComparateurType oldComparateur = comparateur;
+		comparateur = newComparateur == null ? COMPARATEUR_EDEFAULT : newComparateur;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.COMPARAISON__COMPARATEUR, oldComparateur, comparateur));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public float getConstante()
   {
-    return constante;
-  }
+		return constante;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void setConstante(float newConstante)
   {
-    float oldConstante = constante;
-    constante = newConstante;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.COMPARAISON__CONSTANTE, oldConstante, constante));
-  }
+		float oldConstante = constante;
+		constante = newConstante;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CONTRAINTESPackage.COMPARAISON__CONSTANTE, oldConstante, constante));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
-        return getComparateur();
-      case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
-        return getConstante();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
+				return getComparateur();
+			case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
+				return getConstante();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
-        setComparateur((ComparateurType)newValue);
-        return;
-      case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
-        setConstante((Float)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
+				setComparateur((ComparateurType)newValue);
+				return;
+			case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
+				setConstante((Float)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
-        setComparateur(COMPARATEUR_EDEFAULT);
-        return;
-      case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
-        setConstante(CONSTANTE_EDEFAULT);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
+				setComparateur(COMPARATEUR_EDEFAULT);
+				return;
+			case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
+				setConstante(CONSTANTE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
-        return comparateur != COMPARATEUR_EDEFAULT;
-      case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
-        return constante != CONSTANTE_EDEFAULT;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case CONTRAINTESPackage.COMPARAISON__COMPARATEUR:
+				return comparateur != COMPARATEUR_EDEFAULT;
+			case CONTRAINTESPackage.COMPARAISON__CONSTANTE:
+				return constante != CONSTANTE_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (comparateur: ");
-    result.append(comparateur);
-    result.append(", constante: ");
-    result.append(constante);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (comparateur: ");
+		result.append(comparateur);
+		result.append(", constante: ");
+		result.append(constante);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ComparaisonImpl

@@ -288,13 +288,22 @@ public interface TableurPackage extends EPackage {
 	int DONNEE_CALCULEE__FONCTION = COLONNE_DONNEE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nom Fonction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONNEE_CALCULEE__NOM_FONCTION = COLONNE_DONNEE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Donnee Calculee</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DONNEE_CALCULEE_FEATURE_COUNT = COLONNE_DONNEE_FEATURE_COUNT + 1;
+	int DONNEE_CALCULEE_FEATURE_COUNT = COLONNE_DONNEE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Donnee Calculee</em>' class.
@@ -532,6 +541,17 @@ public interface TableurPackage extends EPackage {
 	EReference getDonneeCalculee_Fonction();
 
 	/**
+	 * Returns the meta object for the attribute '{@link tableur.DonneeCalculee#getNomFonction <em>Nom Fonction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nom Fonction</em>'.
+	 * @see tableur.DonneeCalculee#getNomFonction()
+	 * @see #getDonneeCalculee()
+	 * @generated
+	 */
+	EAttribute getDonneeCalculee_NomFonction();
+
+	/**
 	 * Returns the meta object for class '{@link tableur.ColonneID <em>Colonne ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,6 +723,14 @@ public interface TableurPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DONNEE_CALCULEE__FONCTION = eINSTANCE.getDonneeCalculee_Fonction();
+
+		/**
+		 * The meta object literal for the '<em><b>Nom Fonction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DONNEE_CALCULEE__NOM_FONCTION = eINSTANCE.getDonneeCalculee_NomFonction();
 
 		/**
 		 * The meta object literal for the '{@link tableur.impl.ColonneIDImpl <em>Colonne ID</em>}' class.

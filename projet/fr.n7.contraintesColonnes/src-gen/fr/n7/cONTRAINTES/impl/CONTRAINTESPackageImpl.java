@@ -33,520 +33,520 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 public class CONTRAINTESPackageImpl extends EPackageImpl implements CONTRAINTESPackage
 {
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass ensembleContraintesEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass contrainteEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass colonneEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass expressionEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass comparaisonEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass operationBinaireEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EClass operationUnaireEClass = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EEnum comparateurTypeEEnum = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EEnum operandeBinaireTypeEEnum = null;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private EEnum operandeUnaireTypeEEnum = null;
 
   /**
-   * Creates an instance of the model <b>Package</b>, registered with
-   * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-   * package URI value.
-   * <p>Note: the correct way to create the package is via the static
-   * factory method {@link #init init()}, which also performs
-   * initialization of the package, or returns the registered package,
-   * if one already exists.
-   * <!-- begin-user-doc -->
+	 * Creates an instance of the model <b>Package</b>, registered with
+	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+	 * package URI value.
+	 * <p>Note: the correct way to create the package is via the static
+	 * factory method {@link #init init()}, which also performs
+	 * initialization of the package, or returns the registered package,
+	 * if one already exists.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#eNS_URI
-   * @see #init()
-   * @generated
-   */
+	 * @see org.eclipse.emf.ecore.EPackage.Registry
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#eNS_URI
+	 * @see #init()
+	 * @generated
+	 */
   private CONTRAINTESPackageImpl()
   {
-    super(eNS_URI, CONTRAINTESFactory.eINSTANCE);
-  }
+		super(eNS_URI, CONTRAINTESFactory.eINSTANCE);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private static boolean isInited = false;
 
   /**
-   * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   *
-   * <p>This method is used to initialize {@link CONTRAINTESPackage#eINSTANCE} when that field is accessed.
-   * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-   * <!-- begin-user-doc -->
+	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+	 *
+	 * <p>This method is used to initialize {@link CONTRAINTESPackage#eINSTANCE} when that field is accessed.
+	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #eNS_URI
-   * @see #createPackageContents()
-   * @see #initializePackageContents()
-   * @generated
-   */
+	 * @see #eNS_URI
+	 * @see #createPackageContents()
+	 * @see #initializePackageContents()
+	 * @generated
+	 */
   public static CONTRAINTESPackage init()
   {
-    if (isInited) return (CONTRAINTESPackage)EPackage.Registry.INSTANCE.getEPackage(CONTRAINTESPackage.eNS_URI);
+		if (isInited) return (CONTRAINTESPackage)EPackage.Registry.INSTANCE.getEPackage(CONTRAINTESPackage.eNS_URI);
 
-    // Obtain or create and register package
-    Object registeredCONTRAINTESPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-    CONTRAINTESPackageImpl theCONTRAINTESPackage = registeredCONTRAINTESPackage instanceof CONTRAINTESPackageImpl ? (CONTRAINTESPackageImpl)registeredCONTRAINTESPackage : new CONTRAINTESPackageImpl();
+		// Obtain or create and register package
+		Object registeredCONTRAINTESPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		CONTRAINTESPackageImpl theCONTRAINTESPackage = registeredCONTRAINTESPackage instanceof CONTRAINTESPackageImpl ? (CONTRAINTESPackageImpl)registeredCONTRAINTESPackage : new CONTRAINTESPackageImpl();
 
-    isInited = true;
+		isInited = true;
 
-    // Create package meta-data objects
-    theCONTRAINTESPackage.createPackageContents();
+		// Create package meta-data objects
+		theCONTRAINTESPackage.createPackageContents();
 
-    // Initialize created meta-data
-    theCONTRAINTESPackage.initializePackageContents();
+		// Initialize created meta-data
+		theCONTRAINTESPackage.initializePackageContents();
 
-    // Mark meta-data to indicate it can't be changed
-    theCONTRAINTESPackage.freeze();
+		// Mark meta-data to indicate it can't be changed
+		theCONTRAINTESPackage.freeze();
 
-    // Update the registry and return the package
-    EPackage.Registry.INSTANCE.put(CONTRAINTESPackage.eNS_URI, theCONTRAINTESPackage);
-    return theCONTRAINTESPackage;
-  }
+		// Update the registry and return the package
+		EPackage.Registry.INSTANCE.put(CONTRAINTESPackage.eNS_URI, theCONTRAINTESPackage);
+		return theCONTRAINTESPackage;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getEnsembleContraintes()
   {
-    return ensembleContraintesEClass;
-  }
+		return ensembleContraintesEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getEnsembleContraintes_Contraintes()
   {
-    return (EReference)ensembleContraintesEClass.getEStructuralFeatures().get(0);
-  }
+		return (EReference)ensembleContraintesEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getContrainte()
   {
-    return contrainteEClass;
-  }
+		return contrainteEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getContrainte_Name()
   {
-    return (EAttribute)contrainteEClass.getEStructuralFeatures().get(0);
-  }
+		return (EAttribute)contrainteEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getContrainte_Colonnes()
   {
-    return (EReference)contrainteEClass.getEStructuralFeatures().get(1);
-  }
+		return (EReference)contrainteEClass.getEStructuralFeatures().get(1);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getContrainte_Expression()
   {
-    return (EReference)contrainteEClass.getEStructuralFeatures().get(2);
-  }
+		return (EReference)contrainteEClass.getEStructuralFeatures().get(2);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getColonne()
   {
-    return colonneEClass;
-  }
+		return colonneEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getColonne_Name()
   {
-    return (EAttribute)colonneEClass.getEStructuralFeatures().get(0);
-  }
+		return (EAttribute)colonneEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getExpression()
   {
-    return expressionEClass;
-  }
+		return expressionEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getComparaison()
   {
-    return comparaisonEClass;
-  }
+		return comparaisonEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getComparaison_Comparateur()
   {
-    return (EAttribute)comparaisonEClass.getEStructuralFeatures().get(0);
-  }
+		return (EAttribute)comparaisonEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getComparaison_Constante()
   {
-    return (EAttribute)comparaisonEClass.getEStructuralFeatures().get(1);
-  }
+		return (EAttribute)comparaisonEClass.getEStructuralFeatures().get(1);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getOperationBinaire()
   {
-    return operationBinaireEClass;
-  }
+		return operationBinaireEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getOperationBinaire_ContrainteGauche()
   {
-    return (EReference)operationBinaireEClass.getEStructuralFeatures().get(0);
-  }
+		return (EReference)operationBinaireEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getOperationBinaire_Operande()
   {
-    return (EAttribute)operationBinaireEClass.getEStructuralFeatures().get(1);
-  }
+		return (EAttribute)operationBinaireEClass.getEStructuralFeatures().get(1);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getOperationBinaire_ContrainteDroite()
   {
-    return (EReference)operationBinaireEClass.getEStructuralFeatures().get(2);
-  }
+		return (EReference)operationBinaireEClass.getEStructuralFeatures().get(2);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EClass getOperationUnaire()
   {
-    return operationUnaireEClass;
-  }
+		return operationUnaireEClass;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EAttribute getOperationUnaire_Operande()
   {
-    return (EAttribute)operationUnaireEClass.getEStructuralFeatures().get(0);
-  }
+		return (EAttribute)operationUnaireEClass.getEStructuralFeatures().get(0);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EReference getOperationUnaire_Contrainte()
   {
-    return (EReference)operationUnaireEClass.getEStructuralFeatures().get(1);
-  }
+		return (EReference)operationUnaireEClass.getEStructuralFeatures().get(1);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EEnum getComparateurType()
   {
-    return comparateurTypeEEnum;
-  }
+		return comparateurTypeEEnum;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EEnum getOperandeBinaireType()
   {
-    return operandeBinaireTypeEEnum;
-  }
+		return operandeBinaireTypeEEnum;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public EEnum getOperandeUnaireType()
   {
-    return operandeUnaireTypeEEnum;
-  }
+		return operandeUnaireTypeEEnum;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public CONTRAINTESFactory getCONTRAINTESFactory()
   {
-    return (CONTRAINTESFactory)getEFactoryInstance();
-  }
+		return (CONTRAINTESFactory)getEFactoryInstance();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private boolean isCreated = false;
 
   /**
-   * Creates the meta-model objects for the package.  This method is
-   * guarded to have no affect on any invocation but its first.
-   * <!-- begin-user-doc -->
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void createPackageContents()
   {
-    if (isCreated) return;
-    isCreated = true;
+		if (isCreated) return;
+		isCreated = true;
 
-    // Create classes and their features
-    ensembleContraintesEClass = createEClass(ENSEMBLE_CONTRAINTES);
-    createEReference(ensembleContraintesEClass, ENSEMBLE_CONTRAINTES__CONTRAINTES);
+		// Create classes and their features
+		ensembleContraintesEClass = createEClass(ENSEMBLE_CONTRAINTES);
+		createEReference(ensembleContraintesEClass, ENSEMBLE_CONTRAINTES__CONTRAINTES);
 
-    contrainteEClass = createEClass(CONTRAINTE);
-    createEAttribute(contrainteEClass, CONTRAINTE__NAME);
-    createEReference(contrainteEClass, CONTRAINTE__COLONNES);
-    createEReference(contrainteEClass, CONTRAINTE__EXPRESSION);
+		contrainteEClass = createEClass(CONTRAINTE);
+		createEAttribute(contrainteEClass, CONTRAINTE__NAME);
+		createEReference(contrainteEClass, CONTRAINTE__COLONNES);
+		createEReference(contrainteEClass, CONTRAINTE__EXPRESSION);
 
-    colonneEClass = createEClass(COLONNE);
-    createEAttribute(colonneEClass, COLONNE__NAME);
+		colonneEClass = createEClass(COLONNE);
+		createEAttribute(colonneEClass, COLONNE__NAME);
 
-    expressionEClass = createEClass(EXPRESSION);
+		expressionEClass = createEClass(EXPRESSION);
 
-    comparaisonEClass = createEClass(COMPARAISON);
-    createEAttribute(comparaisonEClass, COMPARAISON__COMPARATEUR);
-    createEAttribute(comparaisonEClass, COMPARAISON__CONSTANTE);
+		comparaisonEClass = createEClass(COMPARAISON);
+		createEAttribute(comparaisonEClass, COMPARAISON__COMPARATEUR);
+		createEAttribute(comparaisonEClass, COMPARAISON__CONSTANTE);
 
-    operationBinaireEClass = createEClass(OPERATION_BINAIRE);
-    createEReference(operationBinaireEClass, OPERATION_BINAIRE__CONTRAINTE_GAUCHE);
-    createEAttribute(operationBinaireEClass, OPERATION_BINAIRE__OPERANDE);
-    createEReference(operationBinaireEClass, OPERATION_BINAIRE__CONTRAINTE_DROITE);
+		operationBinaireEClass = createEClass(OPERATION_BINAIRE);
+		createEReference(operationBinaireEClass, OPERATION_BINAIRE__CONTRAINTE_GAUCHE);
+		createEAttribute(operationBinaireEClass, OPERATION_BINAIRE__OPERANDE);
+		createEReference(operationBinaireEClass, OPERATION_BINAIRE__CONTRAINTE_DROITE);
 
-    operationUnaireEClass = createEClass(OPERATION_UNAIRE);
-    createEAttribute(operationUnaireEClass, OPERATION_UNAIRE__OPERANDE);
-    createEReference(operationUnaireEClass, OPERATION_UNAIRE__CONTRAINTE);
+		operationUnaireEClass = createEClass(OPERATION_UNAIRE);
+		createEAttribute(operationUnaireEClass, OPERATION_UNAIRE__OPERANDE);
+		createEReference(operationUnaireEClass, OPERATION_UNAIRE__CONTRAINTE);
 
-    // Create enums
-    comparateurTypeEEnum = createEEnum(COMPARATEUR_TYPE);
-    operandeBinaireTypeEEnum = createEEnum(OPERANDE_BINAIRE_TYPE);
-    operandeUnaireTypeEEnum = createEEnum(OPERANDE_UNAIRE_TYPE);
-  }
+		// Create enums
+		comparateurTypeEEnum = createEEnum(COMPARATEUR_TYPE);
+		operandeBinaireTypeEEnum = createEEnum(OPERANDE_BINAIRE_TYPE);
+		operandeUnaireTypeEEnum = createEEnum(OPERANDE_UNAIRE_TYPE);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private boolean isInitialized = false;
 
   /**
-   * Complete the initialization of the package and its meta-model.  This
-   * method is guarded to have no affect on any invocation but its first.
-   * <!-- begin-user-doc -->
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void initializePackageContents()
   {
-    if (isInitialized) return;
-    isInitialized = true;
+		if (isInitialized) return;
+		isInitialized = true;
 
-    // Initialize package
-    setName(eNAME);
-    setNsPrefix(eNS_PREFIX);
-    setNsURI(eNS_URI);
+		// Initialize package
+		setName(eNAME);
+		setNsPrefix(eNS_PREFIX);
+		setNsURI(eNS_URI);
 
-    // Create type parameters
+		// Create type parameters
 
-    // Set bounds for type parameters
+		// Set bounds for type parameters
 
-    // Add supertypes to classes
-    comparaisonEClass.getESuperTypes().add(this.getExpression());
-    operationBinaireEClass.getESuperTypes().add(this.getExpression());
-    operationUnaireEClass.getESuperTypes().add(this.getExpression());
+		// Add supertypes to classes
+		comparaisonEClass.getESuperTypes().add(this.getExpression());
+		operationBinaireEClass.getESuperTypes().add(this.getExpression());
+		operationUnaireEClass.getESuperTypes().add(this.getExpression());
 
-    // Initialize classes and features; add operations and parameters
-    initEClass(ensembleContraintesEClass, EnsembleContraintes.class, "EnsembleContraintes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEnsembleContraintes_Contraintes(), this.getContrainte(), null, "contraintes", null, 0, -1, EnsembleContraintes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		// Initialize classes and features; add operations and parameters
+		initEClass(ensembleContraintesEClass, EnsembleContraintes.class, "EnsembleContraintes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnsembleContraintes_Contraintes(), this.getContrainte(), null, "contraintes", null, 0, -1, EnsembleContraintes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(contrainteEClass, Contrainte.class, "Contrainte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getContrainte_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContrainte_Colonnes(), this.getColonne(), null, "colonnes", null, 0, -1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContrainte_Expression(), this.getExpression(), null, "expression", null, 0, -1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(contrainteEClass, Contrainte.class, "Contrainte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContrainte_Name(), ecorePackage.getEString(), "name", null, 0, 1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContrainte_Colonnes(), this.getColonne(), null, "colonnes", null, 0, -1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContrainte_Expression(), this.getExpression(), null, "expression", null, 0, -1, Contrainte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(colonneEClass, Colonne.class, "Colonne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getColonne_Name(), ecorePackage.getEString(), "name", null, 0, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(colonneEClass, Colonne.class, "Colonne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getColonne_Name(), ecorePackage.getEString(), "name", null, 0, 1, Colonne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(comparaisonEClass, Comparaison.class, "Comparaison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getComparaison_Comparateur(), this.getComparateurType(), "comparateur", null, 0, 1, Comparaison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getComparaison_Constante(), ecorePackage.getEFloat(), "constante", null, 0, 1, Comparaison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comparaisonEClass, Comparaison.class, "Comparaison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComparaison_Comparateur(), this.getComparateurType(), "comparateur", null, 0, 1, Comparaison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparaison_Constante(), ecorePackage.getEFloat(), "constante", null, 0, 1, Comparaison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(operationBinaireEClass, OperationBinaire.class, "OperationBinaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOperationBinaire_ContrainteGauche(), this.getExpression(), null, "contrainteGauche", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperationBinaire_Operande(), this.getOperandeBinaireType(), "operande", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperationBinaire_ContrainteDroite(), this.getExpression(), null, "contrainteDroite", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(operationBinaireEClass, OperationBinaire.class, "OperationBinaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationBinaire_ContrainteGauche(), this.getExpression(), null, "contrainteGauche", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperationBinaire_Operande(), this.getOperandeBinaireType(), "operande", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationBinaire_ContrainteDroite(), this.getExpression(), null, "contrainteDroite", null, 0, 1, OperationBinaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(operationUnaireEClass, OperationUnaire.class, "OperationUnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOperationUnaire_Operande(), this.getOperandeUnaireType(), "operande", null, 0, 1, OperationUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperationUnaire_Contrainte(), this.getExpression(), null, "contrainte", null, 0, 1, OperationUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(operationUnaireEClass, OperationUnaire.class, "OperationUnaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperationUnaire_Operande(), this.getOperandeUnaireType(), "operande", null, 0, 1, OperationUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperationUnaire_Contrainte(), this.getExpression(), null, "contrainte", null, 0, 1, OperationUnaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    // Initialize enums and add enum literals
-    initEEnum(comparateurTypeEEnum, ComparateurType.class, "ComparateurType");
-    addEEnumLiteral(comparateurTypeEEnum, ComparateurType.INF);
-    addEEnumLiteral(comparateurTypeEEnum, ComparateurType.INFEG);
-    addEEnumLiteral(comparateurTypeEEnum, ComparateurType.SUP);
-    addEEnumLiteral(comparateurTypeEEnum, ComparateurType.SUPEG);
-    addEEnumLiteral(comparateurTypeEEnum, ComparateurType.EG);
+		// Initialize enums and add enum literals
+		initEEnum(comparateurTypeEEnum, ComparateurType.class, "ComparateurType");
+		addEEnumLiteral(comparateurTypeEEnum, ComparateurType.INF);
+		addEEnumLiteral(comparateurTypeEEnum, ComparateurType.INFEG);
+		addEEnumLiteral(comparateurTypeEEnum, ComparateurType.SUP);
+		addEEnumLiteral(comparateurTypeEEnum, ComparateurType.SUPEG);
+		addEEnumLiteral(comparateurTypeEEnum, ComparateurType.EG);
 
-    initEEnum(operandeBinaireTypeEEnum, OperandeBinaireType.class, "OperandeBinaireType");
-    addEEnumLiteral(operandeBinaireTypeEEnum, OperandeBinaireType.AND);
-    addEEnumLiteral(operandeBinaireTypeEEnum, OperandeBinaireType.OR);
+		initEEnum(operandeBinaireTypeEEnum, OperandeBinaireType.class, "OperandeBinaireType");
+		addEEnumLiteral(operandeBinaireTypeEEnum, OperandeBinaireType.AND);
+		addEEnumLiteral(operandeBinaireTypeEEnum, OperandeBinaireType.OR);
 
-    initEEnum(operandeUnaireTypeEEnum, OperandeUnaireType.class, "OperandeUnaireType");
-    addEEnumLiteral(operandeUnaireTypeEEnum, OperandeUnaireType.NON);
+		initEEnum(operandeUnaireTypeEEnum, OperandeUnaireType.class, "OperandeUnaireType");
+		addEEnumLiteral(operandeUnaireTypeEEnum, OperandeUnaireType.NON);
 
-    // Create resource
-    createResource(eNS_URI);
-  }
+		// Create resource
+		createResource(eNS_URI);
+	}
 
 } //CONTRAINTESPackageImpl

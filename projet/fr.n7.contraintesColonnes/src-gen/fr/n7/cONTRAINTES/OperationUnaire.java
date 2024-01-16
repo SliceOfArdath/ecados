@@ -24,50 +24,50 @@ package fr.n7.cONTRAINTES;
 public interface OperationUnaire extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Operande</b></em>' attribute.
-   * The literals are from the enumeration {@link fr.n7.cONTRAINTES.OperandeUnaireType}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Operande</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.n7.cONTRAINTES.OperandeUnaireType}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operande</em>' attribute.
-   * @see fr.n7.cONTRAINTES.OperandeUnaireType
-   * @see #setOperande(OperandeUnaireType)
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getOperationUnaire_Operande()
-   * @model
-   * @generated
-   */
+	 * @return the value of the '<em>Operande</em>' attribute.
+	 * @see fr.n7.cONTRAINTES.OperandeUnaireType
+	 * @see #setOperande(OperandeUnaireType)
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getOperationUnaire_Operande()
+	 * @model
+	 * @generated
+	 */
   OperandeUnaireType getOperande();
 
   /**
-   * Sets the value of the '{@link fr.n7.cONTRAINTES.OperationUnaire#getOperande <em>Operande</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link fr.n7.cONTRAINTES.OperationUnaire#getOperande <em>Operande</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operande</em>' attribute.
-   * @see fr.n7.cONTRAINTES.OperandeUnaireType
-   * @see #getOperande()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Operande</em>' attribute.
+	 * @see fr.n7.cONTRAINTES.OperandeUnaireType
+	 * @see #getOperande()
+	 * @generated
+	 */
   void setOperande(OperandeUnaireType value);
 
   /**
-   * Returns the value of the '<em><b>Contrainte</b></em>' containment reference.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Contrainte</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contrainte</em>' containment reference.
-   * @see #setContrainte(Expression)
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getOperationUnaire_Contrainte()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Contrainte</em>' containment reference.
+	 * @see #setContrainte(Expression)
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getOperationUnaire_Contrainte()
+	 * @model containment="true"
+	 * @generated
+	 */
   Expression getContrainte();
 
   /**
-   * Sets the value of the '{@link fr.n7.cONTRAINTES.OperationUnaire#getContrainte <em>Contrainte</em>}' containment reference.
-   * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link fr.n7.cONTRAINTES.OperationUnaire#getContrainte <em>Contrainte</em>}' containment reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Contrainte</em>' containment reference.
-   * @see #getContrainte()
-   * @generated
-   */
+	 * @param value the new value of the '<em>Contrainte</em>' containment reference.
+	 * @see #getContrainte()
+	 * @generated
+	 */
   void setContrainte(Expression value);
 
 } // OperationUnaire

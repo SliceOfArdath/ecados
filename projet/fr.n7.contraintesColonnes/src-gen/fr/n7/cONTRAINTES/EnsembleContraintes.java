@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface EnsembleContraintes extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Contraintes</b></em>' containment reference list.
-   * The list contents are of type {@link fr.n7.cONTRAINTES.Contrainte}.
-   * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Contraintes</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.n7.cONTRAINTES.Contrainte}.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Contraintes</em>' containment reference list.
-   * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getEnsembleContraintes_Contraintes()
-   * @model containment="true"
-   * @generated
-   */
+	 * @return the value of the '<em>Contraintes</em>' containment reference list.
+	 * @see fr.n7.cONTRAINTES.CONTRAINTESPackage#getEnsembleContraintes_Contraintes()
+	 * @model containment="true"
+	 * @generated
+	 */
   EList<Contrainte> getContraintes();
 
 } // EnsembleContraintes

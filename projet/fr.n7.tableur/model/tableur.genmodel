@@ -29,6 +29,7 @@
     <genClasses ecoreClass="tableur.ecore#//DonneeBrute"/>
     <genClasses ecoreClass="tableur.ecore#//DonneeCalculee">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tableur.ecore#//DonneeCalculee/fonction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tableur.ecore#//DonneeCalculee/nomFonction"/>
     </genClasses>
     <genClasses ecoreClass="tableur.ecore#//ColonneID"/>
     <genClasses ecoreClass="tableur.ecore#//ColonneDonnee"/>
@@ -41,9 +42,9 @@
     <genClasses ecoreClass="../../fr.n7.traitement/model/traitement.ecore#//Fonction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/chemin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/entrees"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/sorties"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../fr.n7.traitement/model/traitement.ecore#//Fonction/table"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/sorties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/entrees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../fr.n7.traitement/model/traitement.ecore#//Fonction/tableName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

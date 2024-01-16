@@ -21,274 +21,268 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum ComparateurType implements Enumerator
 {
   /**
-   * The '<em><b>Inf</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Inf</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #INF_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #INF_VALUE
+	 * @generated
+	 * @ordered
+	 */
   INF(0, "inf", "<"),
 
   /**
-   * The '<em><b>Infeg</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Infeg</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #INFEG_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #INFEG_VALUE
+	 * @generated
+	 * @ordered
+	 */
   INFEG(1, "infeg", "<="),
 
   /**
-   * The '<em><b>Sup</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Sup</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SUP_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #SUP_VALUE
+	 * @generated
+	 * @ordered
+	 */
   SUP(2, "sup", ">"),
 
   /**
-   * The '<em><b>Supeg</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Supeg</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SUPEG_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #SUPEG_VALUE
+	 * @generated
+	 * @ordered
+	 */
   SUPEG(3, "supeg", ">="),
 
   /**
-   * The '<em><b>Eg</b></em>' literal object.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Eg</b></em>' literal object.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #EG_VALUE
-   * @generated
-   * @ordered
-   */
+	 * @see #EG_VALUE
+	 * @generated
+	 * @ordered
+	 */
   EG(4, "eg", "=");
 
   /**
-   * The '<em><b>Inf</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Inf</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #INF
-   * @model name="inf" literal="&lt;"
-   * @generated
-   * @ordered
-   */
+	 * @see #INF
+	 * @model name="inf" literal="&lt;"
+	 * @generated
+	 * @ordered
+	 */
   public static final int INF_VALUE = 0;
 
   /**
-   * The '<em><b>Infeg</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Infeg</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #INFEG
-   * @model name="infeg" literal="&lt;="
-   * @generated
-   * @ordered
-   */
+	 * @see #INFEG
+	 * @model name="infeg" literal="&lt;="
+	 * @generated
+	 * @ordered
+	 */
   public static final int INFEG_VALUE = 1;
 
   /**
-   * The '<em><b>Sup</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Sup</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SUP
-   * @model name="sup" literal="&gt;"
-   * @generated
-   * @ordered
-   */
+	 * @see #SUP
+	 * @model name="sup" literal="&gt;"
+	 * @generated
+	 * @ordered
+	 */
   public static final int SUP_VALUE = 2;
 
   /**
-   * The '<em><b>Supeg</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Supeg</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #SUPEG
-   * @model name="supeg" literal="&gt;="
-   * @generated
-   * @ordered
-   */
+	 * @see #SUPEG
+	 * @model name="supeg" literal="&gt;="
+	 * @generated
+	 * @ordered
+	 */
   public static final int SUPEG_VALUE = 3;
 
   /**
-   * The '<em><b>Eg</b></em>' literal value.
-   * <!-- begin-user-doc -->
+	 * The '<em><b>Eg</b></em>' literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #EG
-   * @model name="eg" literal="="
-   * @generated
-   * @ordered
-   */
+	 * @see #EG
+	 * @model name="eg" literal="="
+	 * @generated
+	 * @ordered
+	 */
   public static final int EG_VALUE = 4;
 
   /**
-   * An array of all the '<em><b>Comparateur Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * An array of all the '<em><b>Comparateur Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private static final ComparateurType[] VALUES_ARRAY =
-    new ComparateurType[]
-    {
-      INF,
-      INFEG,
-      SUP,
-      SUPEG,
-      EG,
-    };
+    new ComparateurType[] {
+			INF,
+			INFEG,
+			SUP,
+			SUPEG,
+			EG,
+		};
 
   /**
-   * A public read-only list of all the '<em><b>Comparateur Type</b></em>' enumerators.
-   * <!-- begin-user-doc -->
+	 * A public read-only list of all the '<em><b>Comparateur Type</b></em>' enumerators.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public static final List<ComparateurType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified literal value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified literal value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param literal the literal.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static ComparateurType get(String literal)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      ComparateurType result = VALUES_ARRAY[i];
-      if (result.toString().equals(literal))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ComparateurType result = VALUES_ARRAY[i];
+			if (result.toString().equals(literal)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified name.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified name.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param name the name.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static ComparateurType getByName(String name)
   {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i)
-    {
-      ComparateurType result = VALUES_ARRAY[i];
-      if (result.getName().equals(name))
-      {
-        return result;
-      }
-    }
-    return null;
-  }
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+			ComparateurType result = VALUES_ARRAY[i];
+			if (result.getName().equals(name)) {
+				return result;
+			}
+		}
+		return null;
+	}
 
   /**
-   * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified integer value.
-   * <!-- begin-user-doc -->
+	 * Returns the '<em><b>Comparateur Type</b></em>' literal with the specified integer value.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the integer value.
-   * @return the matching enumerator or <code>null</code>.
-   * @generated
-   */
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
+	 * @generated
+	 */
   public static ComparateurType get(int value)
   {
-    switch (value)
-    {
-      case INF_VALUE: return INF;
-      case INFEG_VALUE: return INFEG;
-      case SUP_VALUE: return SUP;
-      case SUPEG_VALUE: return SUPEG;
-      case EG_VALUE: return EG;
-    }
-    return null;
-  }
+		switch (value) {
+			case INF_VALUE: return INF;
+			case INFEG_VALUE: return INFEG;
+			case SUP_VALUE: return SUP;
+			case SUPEG_VALUE: return SUPEG;
+			case EG_VALUE: return EG;
+		}
+		return null;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final int value;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String name;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private final String literal;
 
   /**
-   * Only this class can construct instances.
-   * <!-- begin-user-doc -->
+	 * Only this class can construct instances.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   private ComparateurType(int value, String name, String literal)
   {
-    this.value = value;
-    this.name = name;
-    this.literal = literal;
-  }
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public int getValue()
   {
-    return value;
-  }
+	  return value;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getName()
   {
-    return name;
-  }
+	  return name;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String getLiteral()
   {
-    return literal;
-  }
+	  return literal;
+	}
 
   /**
-   * Returns the literal value of the enumerator, which is its string representation.
-   * <!-- begin-user-doc -->
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    return literal;
-  }
+		return literal;
+	}
   
 } //ComparateurType
