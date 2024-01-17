@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+import java.util.Map.Entry;
 
 public class UtilisateurTableur {
 
@@ -44,7 +45,17 @@ public class UtilisateurTableur {
         SwingUtilities.invokeLater(() -> {
             UtilisateurTableur main = new UtilisateurTableur();
             // if (args[0] != null) tailleColonneID = Integer.parseInt(args[0]);
+
+            // Pour lancer un exemple de base
             main.createAndShowGUI();
+
+            // // Exemple de données pour les colonnes
+            // Map<String, List<Object>> colonnes = new HashMap<>();
+            // colonnes.put("ID", List.of("1", "2", "3"));
+            // colonnes.put("Age", List.of("25", "30", "22"));
+            // colonnes.put("Name", List.of("Alice", "Bob", "Charlie"));
+
+            // main.createTableFromTableur(colonnes);
         });
     }
 
@@ -72,6 +83,59 @@ public class UtilisateurTableur {
         return false;
     }
 
+    /**
+     * Méthode pour créer la visualisation graphique depuis un argument colonnes
+     * 
+     * @param colonnes
+     */
+    private void createTableFromTableur(Map<String, List<Object>> colonnes) {
+        this.frame = new JFrame("Tableur Swing");
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        JTabbedPane tabbedPane = new JTabbedPane();
+
+        // Créer la barre de menu
+        JMenuBar menuBar = createMenuBar(tabbedPane);
+        frame.setJMenuBar(menuBar);
+
+        // Création des colonnes
+        for (Entry<String, List<Object>> entry : colonnes.entrySet()) {
+            final String key = entry.getKey();
+            final List<Object> value = entry.getValue();
+
+            // Traitement key-value
+            List<String> col = new ArrayList<>();
+            for (Object obj : value) {
+                col.add(obj.toString());
+            }
+
+            // Création d'une colonne avec des contraintes
+            Set<Contrainte> contraintes = new LinkedHashSet<>();
+            contraintes.add(new ContrainteType(Contrainte.FORMAT_STRING));
+            Colonne colonne = new Colonne(key, col, contraintes);
+
+            tableau.put(key, colonne);
+        }
+
+        JTable t1 = addTable(tabbedPane, "Table1", tableau.get("ID"),
+                new ArrayList<>(tableau.values()));
+        changeRenderAllColumns(t1);
+
+        Button button1 = new Button("Test !");
+        JTable menuTable = new JTable();
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(button1);
+        tabbedPane.add("Button Tab", buttonPanel);
+
+        tabbedPane.add(menuTable);
+
+        frame.getContentPane().add(tabbedPane);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
     private void createAndShowGUI() {
         this.frame = new JFrame("Tableur Swing");
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -82,10 +146,13 @@ public class UtilisateurTableur {
         JMenuBar menuBar = createMenuBar(tabbedPane);
         frame.setJMenuBar(menuBar);
 
-        // Ajoutez autant de tables que vous le souhaitez
         Set<Contrainte> contraintes_ages = new LinkedHashSet<>();
         contraintes_ages.add(new ContrainteValeur(0, 100));
         contraintes_ages.add(new ContrainteType(Contrainte.FORMAT_INT));
+
+        Set<Contrainte> contraintes_word = new LinkedHashSet<>();
+        contraintes_ages.add(new ContrainteType(Contrainte.FORMAT_WORD));
+        System.out.println(contraintes_ages.size());
 
         // Création des colonnes
         Colonne colonneID_1 = new Colonne("ID", List.of("1", "2", "3"));
@@ -95,10 +162,10 @@ public class UtilisateurTableur {
         Colonne colonne2 = new Colonne("Age_1", List.of("25", "30", "22"), contraintes_ages);
         tableau.put(colonne2.getColonneName(), colonne2);
 
-        Colonne colonne3 = new Colonne("Name_1", List.of("Alice", "Bob", "Charlie"));
+        Colonne colonne3 = new Colonne("Name_1", List.of("Alice", "Bob", "Charlie"), contraintes_word);
         tableau.put(colonne3.getColonneName(), colonne3);
 
-        Colonne colonne4 = new Colonne("Name_2", List.of("John", "Jane", "Doe"));
+        Colonne colonne4 = new Colonne("Name_2", List.of("John", "Jane", "Doe"), contraintes_word);
         tableau.put(colonne4.getColonneName(), colonne4);
 
         Colonne colonneID_2 = new Colonne("ID", List.of("4", "5", "6"));
@@ -109,11 +176,11 @@ public class UtilisateurTableur {
         tableau.put(colonne6.getColonneName(), colonne6);
 
         JTable t1 = addTable(tabbedPane, "Table1", colonneID_1,
-                List.of(colonne4, colonne2));
+                List.of(colonne3, colonne2));
         changeRenderAllColumns(t1);
 
         JTable t2 = addTable(tabbedPane, "Table2", colonneID_2,
-                List.of(colonne3, colonne6));
+                List.of(colonne4, colonne6));
         changeRenderAllColumns(t2);
 
         Button button1 = new Button("Test !");
@@ -147,6 +214,7 @@ public class UtilisateurTableur {
         }
 
         int rowCount = Math.max(colonneID.getLignes().size(), colonnes.get(0).getLignes().size());
+        System.out.println(rowCount);
         for (int i = 0; i < rowCount; i++) {
             Object[] row = new Object[colonnes.size() + 1];
             row[0] = colonneID.getLignes().get(i);
@@ -158,27 +226,6 @@ public class UtilisateurTableur {
 
         JTable table = new JTable(tableModel);
         table.setName(tableName);
-
-        // Ajouter l'écouteur de modèle de table
-        tableModel.addTableModelListener(new TableModelListener() {
-            @Override
-            public void tableChanged(TableModelEvent e) {
-                int row = e.getFirstRow();
-                int column = e.getColumn();
-                TableModel model = (TableModel) e.getSource();
-                Object data = model.getValueAt(row, column);
-
-                // Vérifier les contraintes lorsqu'une cellule est modifiée
-                String columnName = model.getColumnName(column);
-                if (!checkConstraints(columnName, column, data.toString())) {
-                    // Annuler la modification si les contraintes ne sont pas respectées
-                    // model.setValueAt(null, row, column);
-                    System.out.println("modif ne respecte pas contraintes");
-                } else {
-                    System.out.println("Cellule modifiée à [" + row + ", " + column + "]. Nouvelle valeur : " + data);
-                }
-            }
-        });
 
         JScrollPane scrollPane = new JScrollPane(table);
 
@@ -245,6 +292,8 @@ public class UtilisateurTableur {
                     String columnName = table.getColumnName(column);
                     int columnNumber = column - 1;
                     if (!checkConstraints(columnName, columnNumber, value.toString())) {
+                        // if (!checkConstraints(table.getColumnModel().getColumn(column),
+                        // value.toString())) {
                         cell.setBackground(Color.RED);
                         System.out.println("FAUX");
                     } else {

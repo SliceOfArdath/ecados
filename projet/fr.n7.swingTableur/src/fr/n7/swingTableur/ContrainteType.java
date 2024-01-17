@@ -1,4 +1,5 @@
 package fr.n7.swingTableur;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +17,8 @@ public class ContrainteType implements Contrainte {
                 return verifierExpressionReguliere(cellule, "-?\\d+");
             case Contrainte.FORMAT_FLOAT:
                 return verifierExpressionReguliere(cellule, "-?\\d+(\\.\\d+)?([eE][-+]?\\d+)?");
+            case Contrainte.FORMAT_WORD:
+                return verifierExpressionReguliere(cellule, "\\w+");
             case Contrainte.FORMAT_STRING:
                 // Aucune contrainte pour les chaînes de caractères
                 return true;
