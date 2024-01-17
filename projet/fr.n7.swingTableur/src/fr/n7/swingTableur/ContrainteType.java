@@ -1,6 +1,4 @@
-package fr.n7;
-import fr.n7.swingTableur.Contrainte;
-
+package fr.n7.swingTableur;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

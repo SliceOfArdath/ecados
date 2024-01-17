@@ -8,8 +8,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-import fr.n7.ContrainteType;
-
 import java.awt.*;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
@@ -20,6 +18,7 @@ import java.awt.print.PrinterException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -29,14 +28,12 @@ import java.util.Vector;
 
 public class UtilisateurTableur {
 
-
-    /* Problèmes observés :
-     * - les contraintes sont toutes à 0, même pour celles où l'on ajoute une contrainte de chaque ...
-     * - 
+    /*
+     * Problèmes observés :
+     * - les contraintes sont toutes à 0, même pour celles où l'on ajoute une
+     * contrainte de chaque ...
+     * -
      */
-
-
-
 
     public JFrame frame;
     // public static int tailleColonneID = 0;
@@ -54,13 +51,12 @@ public class UtilisateurTableur {
     public boolean checkConstraints(String columnName, int columnNumber, String cellValue) {
         if (tableau.containsKey(columnName)) {
             Colonne colonne = tableau.get(columnName);
-            
-            System.out.println(tableau.toString());
+
+            System.out.println();
 
             // Récupérer les contraintes de la colonne
             Set<Contrainte> contraintes = colonne.getContraintes();
             System.out.println("taille de contraintes : " + contraintes.size());
-            System.out.println("Coucou");
             // Vérifier les contraintes
             for (Contrainte contrainte : contraintes) {
                 if (!contrainte.verifier(cellValue)) {
@@ -92,10 +88,11 @@ public class UtilisateurTableur {
         contraintes_ages.add(new ContrainteType(Contrainte.FORMAT_INT));
 
         // Création des colonnes
-        Colonne colonne1 = new Colonne("ID_1", List.of("1", "2", "3"));
-        tableau.put(colonne1.getColonneName(), colonne1);
+        Colonne colonneID_1 = new Colonne("ID", List.of("1", "2", "3"));
+        setConstraintColumnID(colonneID_1);
+        tableau.put(colonneID_1.getColonneName(), colonneID_1);
 
-        Colonne colonne2 = new Colonne("Age", List.of("25", "30", "22"), contraintes_ages);
+        Colonne colonne2 = new Colonne("Age_1", List.of("25", "30", "22"), contraintes_ages);
         tableau.put(colonne2.getColonneName(), colonne2);
 
         Colonne colonne3 = new Colonne("Name_1", List.of("Alice", "Bob", "Charlie"));
@@ -104,17 +101,20 @@ public class UtilisateurTableur {
         Colonne colonne4 = new Colonne("Name_2", List.of("John", "Jane", "Doe"));
         tableau.put(colonne4.getColonneName(), colonne4);
 
-        Colonne colonne5 = new Colonne("ID_2", List.of("4", "5", "6"));
-        tableau.put(colonne5.getColonneName(), colonne5);
+        Colonne colonneID_2 = new Colonne("ID", List.of("4", "5", "6"));
+        setConstraintColumnID(colonneID_2);
+        tableau.put(colonneID_2.getColonneName(), colonneID_2);
 
-        Colonne colonne6 = new Colonne("Age", List.of("28", "35", "40"), contraintes_ages);
+        Colonne colonne6 = new Colonne("Age_2", List.of("28", "35", "40"), contraintes_ages);
         tableau.put(colonne6.getColonneName(), colonne6);
 
-        addTable(tabbedPane, "Table1", colonne1,
+        JTable t1 = addTable(tabbedPane, "Table1", colonneID_1,
                 List.of(colonne4, colonne2));
+        changeRenderAllColumns(t1);
 
-        addTable(tabbedPane, "Table2", colonne5,
+        JTable t2 = addTable(tabbedPane, "Table2", colonneID_2,
                 List.of(colonne3, colonne6));
+        changeRenderAllColumns(t2);
 
         Button button1 = new Button("Test !");
         JTable menuTable = new JTable();
@@ -132,10 +132,16 @@ public class UtilisateurTableur {
 
     }
 
-    private void addTable(JTabbedPane tabbedPane, String tableName, Colonne colonneID, List<Colonne> colonnes) {
+    public void setConstraintColumnID(Colonne colonne) {
+        colonne.addContrainte(new ContrainteValeur(0, Float.MAX_VALUE));
+        colonne.addContrainte(new ContrainteType(Contrainte.FORMAT_INT));
+    }
+
+    private JTable addTable(JTabbedPane tabbedPane, String tableName, Colonne colonneID, List<Colonne> colonnes) {
         DefaultTableModel tableModel = new DefaultTableModel();
 
         tableModel.addColumn("ID");
+
         for (Colonne colonne : colonnes) {
             tableModel.addColumn(colonne.getColonneName());
         }
@@ -152,27 +158,6 @@ public class UtilisateurTableur {
 
         JTable table = new JTable(tableModel);
         table.setName(tableName);
-
-        // Définir le rendu pour la colonne "Age"
-        table.getColumn("Age").setCellRenderer(new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-                    boolean hasFocus, int row, int column) {
-                Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
-                // Vérifier les contraintes lorsqu'une cellule est rendue
-                String columnName = table.getColumnName(column);
-                int columnNumber = column - 1; // Adjuster le numéro de colonne pour correspondre à l'index de la liste
-                if (!checkConstraints(columnName, columnNumber, value.toString())) {
-                    cell.setBackground(Color.RED);
-                    System.out.println("FAUX");
-                } else {
-                    cell.setBackground(table.getBackground());
-                }
-
-                return cell;
-            }
-        });
 
         // Ajouter l'écouteur de modèle de table
         tableModel.addTableModelListener(new TableModelListener() {
@@ -203,9 +188,12 @@ public class UtilisateurTableur {
 
         tabbedPane.addTab(tableName, panel);
 
+        // Provisoirement, on enregistre la table quand on ouvre avec swing
         printTable(table);
         saveFile(table, table.getName() + ".csv");
         System.out.println();
+
+        return table;
     }
 
     private void printTable(JTable table) {
@@ -231,6 +219,46 @@ public class UtilisateurTableur {
                 }
             }
             System.out.println(); // Nouvelle ligne après chaque ligne de données
+        }
+    }
+
+    /**
+     * Permet de faire apparaître graphiquement là où se trouvent des erreurs en
+     * affichant les celulles invalides en rouge.
+     * 
+     * @param table la table dont on souhaite ajouter sur ses colonnes le traitement
+     *              graphique
+     */
+    public void changeRenderAllColumns(JTable table) {
+        int nbColumns = table.getColumnModel().getColumnCount();
+
+        for (int i = 0; i < nbColumns; i++) {
+            TableColumn tableColumn = table.getColumnModel().getColumn(i);
+            tableColumn.setCellRenderer(new DefaultTableCellRenderer() {
+                @Override
+                public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                        boolean hasFocus, int row, int column) {
+                    Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,
+                            column);
+
+                    // Vérifier les contraintes lorsqu'une cellule est rendue
+                    String columnName = table.getColumnName(column);
+                    int columnNumber = column - 1;
+                    if (!checkConstraints(columnName, columnNumber, value.toString())) {
+                        cell.setBackground(Color.RED);
+                        System.out.println("FAUX");
+                    } else {
+                        if (isSelected) {
+                            cell.setBackground(table.getSelectionBackground());
+                        } else {
+                            cell.setBackground(table.getBackground());
+                        }
+
+                    }
+
+                    return cell;
+                }
+            });
         }
     }
 
