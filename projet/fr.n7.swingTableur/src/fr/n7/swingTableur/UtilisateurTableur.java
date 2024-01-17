@@ -37,6 +37,7 @@ public class UtilisateurTableur {
      */
 
     public JFrame frame;
+    public JTable t1, t2;
     // public static int tailleColonneID = 0;
 
     public Map<String, Colonne> tableau = new HashMap<String, Colonne>();
@@ -147,11 +148,11 @@ public class UtilisateurTableur {
         frame.setJMenuBar(menuBar);
 
         Set<Contrainte> contraintes_ages = new LinkedHashSet<>();
-        contraintes_ages.add(new ContrainteValeur(0, 100));
+        contraintes_ages.add(new ContrainteValeur(0, Integer.MAX_VALUE));
         contraintes_ages.add(new ContrainteType(Contrainte.FORMAT_INT));
 
         Set<Contrainte> contraintes_word = new LinkedHashSet<>();
-        contraintes_ages.add(new ContrainteType(Contrainte.FORMAT_WORD));
+        contraintes_word.add(new ContrainteType(Contrainte.FORMAT_WORD));
         System.out.println(contraintes_ages.size());
 
         // Création des colonnes
@@ -175,11 +176,11 @@ public class UtilisateurTableur {
         Colonne colonne6 = new Colonne("Age_2", List.of("28", "35", "40"), contraintes_ages);
         tableau.put(colonne6.getColonneName(), colonne6);
 
-        JTable t1 = addTable(tabbedPane, "Table1", colonneID_1,
+        t1 = addTable(tabbedPane, "Table1", colonneID_1,
                 List.of(colonne3, colonne2));
         changeRenderAllColumns(t1);
 
-        JTable t2 = addTable(tabbedPane, "Table2", colonneID_2,
+        t2 = addTable(tabbedPane, "Table2", colonneID_2,
                 List.of(colonne4, colonne6));
         changeRenderAllColumns(t2);
 
@@ -359,6 +360,8 @@ public class UtilisateurTableur {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("TO DO : ajouter save");
+                saveFile(t1, "out" + t1.getName() + ".csv");
+                saveFile(t2, "out" + t2.getName() + ".csv");
                 return;
             }
         });
